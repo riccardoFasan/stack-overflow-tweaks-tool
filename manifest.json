@@ -1,0 +1,34 @@
+{
+    "manifest_version": 3,
+    "name": "Jump to Answer",
+    "description": "An easy way to jump to answer of a StackOverflow topic.",
+    "version": "1.0.0",
+    "icons": {
+        "16": "icons/bulb16.png",
+        "48": "icons/bulb48.png",
+        "128": "icons/bulb128.png"
+    },
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "icons/bulb.svg"
+            ],
+            "matches": [
+                "https://stackoverflow.com/*"
+            ]
+        }
+    ],
+    "content_scripts": [
+        {
+            "js": [
+                "script.js"
+            ],
+            "css": [
+                "style.css"
+            ],
+            "matches": [
+                "*://stackoverflow.com/questions/*"
+            ]
+        }
+    ]
+}
