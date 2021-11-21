@@ -5,7 +5,12 @@
     justify-content: space-between;
     margin-left: 15px;
     max-height: 37.78px;
+    background-color: #d47221;
 }
+
+#jumpToAnswerButton:hover {
+    background-color: rgb(179, 96, 28);
+} 
 
 #jumpToAnswerButton .icon {
     margin-right: 5px;
@@ -15,7 +20,6 @@
     background-repeat: no-repeat;
     background-size: contain;
 }
-
 
 #answers .answer.accepted-answer {
     padding: 30px 20px;
