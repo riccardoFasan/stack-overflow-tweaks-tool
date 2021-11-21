@@ -12,7 +12,7 @@ if (correctAnswer) {
     injectButton();
     setScrollBehaviorAsSmooth();
 } else {
-    console.log('JumpToAnswer: No correct answers yet 😭.');
+    console.log('StackOverflowTweaksTool: No correct answers yet 😭.');
 }
 
 function changeAnswerColor() {
