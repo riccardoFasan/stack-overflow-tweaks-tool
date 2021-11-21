@@ -4,7 +4,7 @@ const correctAnswer = body.querySelector('.accepted-answer');
 const darkColor = '#273C3B';
 const lightColor = '#D9FFE4';
 
-const iconPath = 'icons/bulb.svg';
+const iconPath = 'icons/stackOverflowBulb.svg';
 
 if (correctAnswer) {
     changeAnswerColor();
@@ -26,17 +26,25 @@ function getColor() {
 function injectButton(){
     const button = document.createElement('a');
     button.setAttribute('id', 'jumpToAnswerButton');
-    button.setAttribute('href', `#${getToAnswerId()}`);
+    button.setAttribute('class', 'ws-nowrap s-btn s-btn__primary');
+    button.setAttribute('href', `#${getAnswerId()}`);
+
+    const text = document.createElement('div');
+    text.setAttribute('class', 'text');
+    text.innerText = 'Jump to Answer';
     
     const icon = document.createElement('div');
     icon.setAttribute('class', 'icon');
     icon.style.backgroundImage = `url(${getImageURL()})`;
 
-    body.appendChild(button);
+    const questionHeader = body.querySelector('#question-header');
+
+    questionHeader.appendChild(button);
     button.appendChild(icon);
+    button.appendChild(text);
 }
 
-function getToAnswerId() {
+function getAnswerId() {
     return correctAnswer.getAttribute('id');
 }
 

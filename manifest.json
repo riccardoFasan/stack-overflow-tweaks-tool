@@ -11,7 +11,8 @@
     "web_accessible_resources": [
         {
             "resources": [
-                "icons/bulb.svg"
+                "icons/bulb.svg",
+                "icons/stackOverflowBulb.svg"
             ],
             "matches": [
                 "https://stackoverflow.com/*"
