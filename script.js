@@ -2,12 +2,13 @@ const body = document.querySelector('body');
 const correctAnswer = body.querySelector('.accepted-answer');
 
 const darkColor = '#273C3B';
-const lightColor = '#D9FFE4';
+const lightColor = '#dffde8';
 
 const iconPath = 'icons/stackOverflowBulb.svg';
 
 if (correctAnswer) {
     changeAnswerColor();
+    removePreviousAnswerBorder();
     injectButton();
     setScrollBehaviorAsSmooth();
 } else {
@@ -23,6 +24,11 @@ function getColor() {
     return isDarkTheme ? darkColor : lightColor;
 }
 
+function removePreviousAnswerBorder() {
+    const previousAnswer = correctAnswer.previousElementSibling.previousElementSibling;
+    if (previousAnswer) previousAnswer.style.borderBottom = 'unset';
+}
+
 function injectButton(){
     const button = document.createElement('a');
     button.setAttribute('id', 'jumpToAnswerButton');
@@ -31,7 +37,7 @@ function injectButton(){
 
     const text = document.createElement('div');
     text.setAttribute('class', 'text');
-    text.innerText = 'Jump to Answer';
+    text.innerText = 'Jump to the Answer';
     
     const icon = document.createElement('div');
     icon.setAttribute('class', 'icon');
