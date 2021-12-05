@@ -4,7 +4,7 @@ StackOverflowTweaksTool is an extension for chromium based browsers made for dev
 
 ## Installation
 
-The extension is available for Microsoft Edge (Chromium) [here](https://microsoftedge.microsoft.com/addons/detail/stackoverflow-tweaks-tool/njpnponmdmhbeojlcdffcliceolmambc?form=MT001Y.[Microsoft Edge Addons](https://microsoftedge.microsoft.com/addons/detail/stackoverflow-tweaks-tool/njpnponmdmhbeojlcdffcliceolmambc?form=MT001Y)).
+The extension is available for Microsoft Edge (Chromium) [here](https://microsoftedge.microsoft.com/addons/detail/stackoverflow-tweaks-tool/njpnponmdmhbeojlcdffcliceolmambc?form=MT001Y).
 
 ## License
 
