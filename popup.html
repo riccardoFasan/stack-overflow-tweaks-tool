@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StackOverflow Tweaks Tool Settings</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+    :root {
+        --foreground: rgba(255, 255, 255, 0.8);
+        --background: rgb(45, 45, 45);
+    }
+
+    body {
+        font-size: 16px;
+        margin: 0;
+        padding: 2rem;
+        width: 30rem;
+        font-family: 'Roboto', sans-serif;
+        background-color: var(--background);
+        color:  var(--foreground);
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    p,
+    h1 {
+        margin: 0;
+        padding: 0; 
+    }
+
+    label,
+    p {
+        line-height: 1.5;
+    }
+
+    main {
+        border-top: 1px solid var(--foreground);
+        border-bottom: 1px solid var(--foreground);
+        margin: 1.75rem 0;
+        padding: 1.75rem 0;
+    }
+
+    form {
+        margin-top: 1.5rem;
+    }
+
+    
+    label {
+        font-size: .9rem;
+    }
+
+    form fieldset:not(:first-child) {
+        margin-top: 1.25rem;
+    }
+
+    .toggle {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    label,
+    input {
+        display: block;
+    }
+
+    footer {
+        font-size: .85rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+</style>
+
+<body>
+   <header>
+       <h1>StackOverflow Tweaks Tool</h1>
+    </header>
+   <main>
+
+        <p>Here you can configure the extension. Use the toggles to choose what features enable.</p>
+
+        <form>
+
+            <fieldset>
+                <legend>Accepted answer settings</legend>
+                <div class="toggle">
+                    <label for="">Highlight the accepted answer</label>
+                    <input type="checkbox">
+                </div>
+                <div class="toggle">
+                    <label for="">Add the "Jump to the answer" button</label>
+                    <input type="checkbox">
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Navigation settings</legend>
+                <div class="toggle">
+                    <label for="">Hide the navigation bar</label>
+                    <input type="checkbox">
+                </div>
+                <div class="toggle">
+                    <label for="">Hide the suggestions bar</label>
+                    <input type="checkbox">
+                </div>
+            </fieldset>
+
+        </form>
+
+   </main>
+
+   <footer>
+        <div>StackOverflow Tweaks Tool - v. 1.1.0 - 2021</div>
+        <div>
+            <a target="_blank" href="https://github.com/riccardoFasan/stack-overflow-tweaks-tool">Git Hub</a>
+        </div>
+   </footer>
+
+</body>
+</html>

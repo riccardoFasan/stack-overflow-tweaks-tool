@@ -78,3 +78,12 @@ function getAnswerPosition() {
     console.log(answerTopPosition, heanderHeight)
     return answerTopPosition - heanderHeight;
 }
+
+/* ================
+Configuration
+================ */
+
+const navigationBar = body.querySelector('#left-sidebar');
+const suggestionsBar = body.querySelector('#sidebar');
+const container = body.querySelector('#content');
+const mainContent = container.querySelector('#mainbar')
