@@ -1,5 +1,13 @@
 const body = document.querySelector('body');
+
+/* ================
+Jump to the answer
+================ */
+
+const header = body.querySelector('header.top-bar');
+
 const correctAnswer = body.querySelector('.accepted-answer');
+const questionHeader = body.querySelector('#question-header');
 
 const darkColor = '#273C3B';
 const lightColor = '#dffde8';
@@ -7,12 +15,15 @@ const lightColor = '#dffde8';
 const iconPath = 'icons/stackOverflowBulb.svg';
 
 if (correctAnswer) {
-    changeAnswerColor();
-    removePreviousAnswerBorder();
+    updateCorrectAnswerStyle();
     injectButton();
-    setScrollBehaviorAsSmooth();
 } else {
     console.log('StackOverflowTweaksTool: No correct answers yet 😭.');
+}
+
+function updateCorrectAnswerStyle() {
+    changeAnswerColor();
+    removePreviousAnswerBorder();
 }
 
 function changeAnswerColor() {
@@ -30,10 +41,9 @@ function removePreviousAnswerBorder() {
 }
 
 function injectButton(){
-    const button = document.createElement('a');
+    const button = document.createElement('button');
     button.setAttribute('id', 'jumpToAnswerButton');
     button.setAttribute('class', 'ws-nowrap s-btn s-btn__primary');
-    button.setAttribute('href', `#${getAnswerId()}`);
 
     const text = document.createElement('div');
     text.setAttribute('class', 'text');
@@ -43,22 +53,28 @@ function injectButton(){
     icon.setAttribute('class', 'icon');
     icon.style.backgroundImage = `url(${getImageURL()})`;
 
-    const questionHeader = body.querySelector('#question-header');
-
     questionHeader.appendChild(button);
     button.appendChild(icon);
     button.appendChild(text);
-}
 
-function getAnswerId() {
-    return correctAnswer.getAttribute('id');
+    button.addEventListener('click', () => {
+        jumpToTheAnswer();
+    });
+
 }
 
 function getImageURL() {
     return chrome.runtime.getURL(iconPath);
 }
 
-function setScrollBehaviorAsSmooth() {
-    const html = document.querySelector('html');
-    html.style.scrollBehavior = 'smooth';
+function jumpToTheAnswer() {
+    const position = getAnswerPosition();
+    window.scrollTo(0, position);
+}
+
+function getAnswerPosition() {
+    const answerTopPosition = correctAnswer.offsetTop;
+    const heanderHeight = header.clientHeight;
+    console.log(answerTopPosition, heanderHeight)
+    return answerTopPosition - heanderHeight;
 }

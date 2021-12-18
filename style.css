@@ -1,3 +1,22 @@
+html {
+    scroll-behavior: smooth;
+}
+
+#question-header > h1 {
+    transition: .3s;
+    padding-right: 10px;
+}
+
+#answers .answer.accepted-answer {
+    transition: .3s;
+    padding: 30px 20px;
+    width: calc(100% + 20px);
+    margin: 100px -20px 100px 0;
+    border-radius: 10px;
+    border-bottom: unset;
+    border: 1px solid var(--black-100);
+}
+
 #jumpToAnswerButton {
     display: flex;
     flex-direction: row;
@@ -5,11 +24,11 @@
     justify-content: space-between;
     margin-left: 15px;
     max-height: 37.78px;
-    background-color: #e67a22;
+    background-color: rgb(194, 105, 32);
 }
 
 #jumpToAnswerButton:hover {
-    background-color: rgb(179, 96, 28);
+    background-color: #e27b27f3;
 } 
 
 #jumpToAnswerButton .icon {
@@ -21,11 +40,21 @@
     background-size: contain;
 }
 
-#answers .answer.accepted-answer {
-    padding: 30px 20px;
-    width: calc(100% + 20px);
-    margin-left: -20px;
-    border-radius: 10px;
-    border-bottom: unset;
-    border: 1px solid var(--black-100);
+/* ================
+Hide side bars
+================ */
+
+.container #content {
+    max-width: unset;    
+    border: unset;
+}
+
+.container #content,
+.container #mainbar {
+    width: 100%;
+}
+
+.container #left-sidebar,
+.container #sidebar {
+    display: none;
 }
