@@ -59,10 +59,15 @@ Hide side bars
     transition: .3s ease-in-out;
 }
 
-.container #left-sidebar.w-0,
-.container #sidebar.w-0 {
+.container #sidebar.w-0,
+.container #left-sidebar.w-0{
     width: 0;
     height: 0;
+    opacity: 0;
+}
+
+.container #sidebar.d-none {
+    display: none;
 }
 
 

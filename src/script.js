@@ -92,21 +92,25 @@ Show or hide side navs
 
 const navigationBar = body.querySelector('#left-sidebar');
 const suggestionsBar = body.querySelector('#sidebar');
+
 const container = body.querySelector('#content');
 const content = container.querySelector('#mainbar')
 
-function showOrHide(nav) {
-    nav.classList.toggle('w-0');
+function showOrHideNavigationBar() {
+    navigationBar.classList.toggle('w-0');
 }
 
-function resizeContent() {
-    content.classList.toggle('w-100');
+function showOrHideSuggestionsBar() {
+    suggestionsBar.classList.toggle('d-none');
 }
 
 function setContainerBorder() {
     container.classList.toggle('no-border');
 }
 
+function resizeContent() {
+    content.classList.toggle('w-100');
+}
 
 /* ================
 Configuration
@@ -131,21 +135,21 @@ const configurations = [{
 }, {
     property: 'hideNavBar',
     enableFeature: () => {
-        showOrHide(navigationBar);
+        showOrHideNavigationBar();
         setContainerBorder();
     },
     disableFeature: () => {
-        showOrHide(navigationBar);
+        showOrHideNavigationBar();
         setContainerBorder();
     }
 }, {
     property: 'hideSuggestionsBar',
     enableFeature: () => {
-        showOrHide(suggestionsBar);
+        showOrHideSuggestionsBar();
         resizeContent();
     },
     disableFeature: () => {
-        showOrHide(suggestionsBar);
+        showOrHideSuggestionsBar();
         resizeContent();
     }
 }];
