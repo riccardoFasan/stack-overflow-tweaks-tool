@@ -2,6 +2,8 @@
 
 StackOverflow Tweaks Tool is an **extension** for **chromium** based browsers made for developers. The extension provides a small control panel where you can customize the view of the StackOverflow question pages.
 
+<img title="" src="./docs/images/main-screen.jpg" alt="" data-align="center" width="567">
+
 ## Features
 
 ### Highlight the correct answer
