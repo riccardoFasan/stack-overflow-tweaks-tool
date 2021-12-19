@@ -9,13 +9,15 @@
         "128": "icons/StackOverlowTweaksTool_128.png"
     },
     "action" : {
+        "default_title" : "StackOverflow Tweaks Tool",
         "default_popup" : "popup.html"
     },
     "web_accessible_resources": [
         {
             "resources": [
                 "icons/bulb.svg",
-                "icons/stackOverflowBulb.svg"
+                "icons/stackOverflowBulb.svg",
+                "icons/github.svg"
             ],
             "matches": [
                 "https://stackoverflow.com/*"

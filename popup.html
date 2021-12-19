@@ -12,22 +12,30 @@
     @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
     :root {
-        --foreground: rgba(255, 255, 255, 0.8);
-        --background: rgb(45, 45, 45);
+        --foreground: hsl(0, 0%, 100%);
+        --dark-foreground: hsla(0, 0%, 100%, 0.70);
+        --background: hsl(210, 5%, 25%);
+        --light-background: hsl(226, 5%, 30%);
+        --orange: #e27b27f3;
+        --git-hub-icon: 'icons/github.svg'
     }
 
     body {
         font-size: 16px;
         margin: 0;
-        padding: 2rem;
-        width: 30rem;
+        padding: 0;
+        width: 35em;
         font-family: 'Roboto', sans-serif;
         background-color: var(--background);
         color:  var(--foreground);
     }
+    
+    header {
+        padding: 2rem 2rem 0 2rem;
+    }
 
     h1 {
-        font-size: 1.75rem;
+        font-size: 1.33rem;
     }
 
     p,
@@ -36,47 +44,80 @@
         padding: 0; 
     }
 
-    label,
     p {
         line-height: 1.5;
     }
 
     main {
-        border-top: 1px solid var(--foreground);
-        border-bottom: 1px solid var(--foreground);
-        margin: 1.75rem 0;
-        padding: 1.75rem 0;
+        border-top: 1px solid var(--light-background);
+        border-bottom: 1px solid var(--light-background);
+        margin: 1.66rem 0;
+        padding: .22rem 2rem;
     }
 
     form {
         margin-top: 1.5rem;
     }
-
     
     label {
-        font-size: .9rem;
-    }
-
-    form fieldset:not(:first-child) {
-        margin-top: 1.25rem;
-    }
-
-    .toggle {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin: 1.33rem 0;
+        user-select: none;
     }
 
-    label,
-    input {
+    label > div {
+        max-width: 80%;
+    }
+
+    label > div > div {
+        font-weight: 500;
+    }
+
+    label p {
+        margin-top: .5rem;
+        font-size: .85rem;
+        color: var(--dark-foreground);
+    }
+
+    label input {
         display: block;
+        height: 1.25rem;
+        width: 1.25rem;
+        outline: none;
+        cursor: pointer;
     }
 
     footer {
+        padding: 0 2rem 2rem 2rem;
         font-size: .85rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        color: var(--dark-foreground);
+    }
+
+    footer > a {
+        display: block;
+    }
+
+    footer #icon {
+        cursor: pointer;
+        transition: .3s;
+        background-color: var(--dark-foreground);
+        height: 1rem;
+        width: 1rem;
+        mask-position: center;
+        --webkit-mask-position: center;
+        mask-repeat: no-repeat;
+        --webkit-mask-repeat: no-repeat;
+        mask-image: var(--git-hub-icon);
+        --webkit-mask-image: var(--git-hub-icon);
+    }
+    
+    footer #icon:hover{
+        background-color: var(--orange);
     }
 
 </style>
@@ -86,45 +127,52 @@
        <h1>StackOverflow Tweaks Tool</h1>
     </header>
    <main>
-
-        <p>Here you can configure the extension. Use the toggles to choose what features enable.</p>
-
         <form>
-
-            <fieldset>
-                <legend>Accepted answer settings</legend>
-                <div class="toggle">
-                    <label for="">Highlight the accepted answer</label>
-                    <input type="checkbox">
+            <label for="highlightAnswer">
+                <div>
+                    <div>Highlight the correct answer</div>
+                    <p>The correct answer, if present, will highlight with a green background.</p>
                 </div>
-                <div class="toggle">
-                    <label for="">Add the "Jump to the answer" button</label>
-                    <input type="checkbox">
+                <input id="highlightAnswer" type="checkbox">
+            </label>
+            <label for="addButton">
+                <div>
+                    <div>"Jump to the answer" button</div>
+                    <p>If ther's correct answer, a button will be added in the question header, near the "ask a question" button. Clicking the new button, the page will scroll to the correct answer.</p>
                 </div>
-            </fieldset>
-
-            <fieldset>
-                <legend>Navigation settings</legend>
-                <div class="toggle">
-                    <label for="">Hide the navigation bar</label>
-                    <input type="checkbox">
+                <input id="addButton" type="checkbox">
+            </label>
+            <label for="hideNavBar">
+                <div>
+                    <div>Hide the navigation bar</div>
+                    <p>The left navigation will be hide in order to improve your focus.</p>
                 </div>
-                <div class="toggle">
-                    <label for="">Hide the suggestions bar</label>
-                    <input type="checkbox">
+                <input id="hideNavBar" type="checkbox">
+            </label>
+            <label for="hideSuggestionsBar">
+                <div>
+                    <div>Hide the suggestions bar</div>
+                    <p>The suggestions and the hot question network will be hide in order to improve your focus.</p>
                 </div>
-            </fieldset>
-
+                <input id="hideSuggestionsBar" type="checkbox">
+            </label>
         </form>
 
    </main>
 
    <footer>
-        <div>StackOverflow Tweaks Tool - v. 1.1.0 - 2021</div>
-        <div>
-            <a target="_blank" href="https://github.com/riccardoFasan/stack-overflow-tweaks-tool">Git Hub</a>
-        </div>
+        <div>StackOverflow Tweaks Tool - 2021</div>
+        <a target="_blank" href="https://github.com/riccardoFasan/stack-overflow-tweaks-tool">
+            <div id="icon"></div>
+        </a>
    </footer>
-
 </body>
+
+<script type="text/javascript">
+    const iconPath = 'icons/github.svg';
+    const absoluteIconPath = chrome.runtime.getURL(iconPath);
+    const cssRoot = document.querySelector(':root');
+    cssRoot.style.setProperty('--git-hub-icon', absoluteIconPath);
+</script>
+
 </html>
