@@ -1,10 +1,10 @@
 const body = document.querySelector('body');
 const correctAnswer = body.querySelector('.accepted-answer');
 
+
 /* ================
 Highlight answer
 ================ */
-
 
 function updateCorrectAnswerStyle() {
     highlightAnswerColor();
@@ -28,6 +28,7 @@ function removePreviousAnswerBorder() {
 function removeAnswerHighlightment() {
     correctAnswer.style.backgroundColor = 'unset';
 }
+
 
 /* ================
 Jump to the answer
@@ -84,6 +85,7 @@ function removeButton() {
     button.remove();
 }
 
+
 /* ================
 Show or hide side navs
 ================ */
@@ -94,22 +96,21 @@ const container = body.querySelector('#content');
 const content = container.querySelector('#mainbar')
 
 function showOrHide(nav) {
-    nav.classList.toggle('d-none');
+    nav.classList.toggle('w-0');
 }
 
-function resizecontent() {
-    container.classList.toggle('enlarged');
-    content.classList.toggle('enlarged');
+function resizeContent() {
+    content.classList.toggle('w-100');
 }
 
 function setContainerBorder() {
     container.classList.toggle('no-border');
 }
 
+
 /* ================
 Configuration
 ================ */
-
 
 const configurations = [{
     property: 'addButton',
@@ -141,11 +142,11 @@ const configurations = [{
     property: 'hideSuggestionsBar',
     enableFeature: () => {
         showOrHide(suggestionsBar);
-        resizecontent();
+        resizeContent();
     },
     disableFeature: () => {
         showOrHide(suggestionsBar);
-        resizecontent();
+        resizeContent();
     }
 }];
 

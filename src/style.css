@@ -44,12 +44,28 @@ html {
 Hide side bars
 ================ */
 
+.container #content {
+    max-width: unset;
+    width: 100%;
+}
 
 .container #content.no-border {
     border: none;
 }
 
-.container #left-sidebar.d-none,
-.container #sidebar.d-none {
-    display: none;
+.container #left-sidebar,
+.container #sidebar,
+.container #mainbar {
+    transition: .3s ease-in-out;
+}
+
+.container #left-sidebar.w-0,
+.container #sidebar.w-0 {
+    width: 0;
+    height: 0;
+}
+
+
+.container #mainbar.w-100 {
+    width: 100%;
 }
