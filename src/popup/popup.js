@@ -2,7 +2,7 @@ const options = [
     'addButton',
     'highlightAnswer',
     'hideNavBar',
-    'hideSuggestionsBar'
+    'hideTooltipsBar'
 ];
 
 function setStorageValue(propertyName, propertyValue) {

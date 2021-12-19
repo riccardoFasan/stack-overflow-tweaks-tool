@@ -91,7 +91,7 @@ Show or hide side navs
 ================ */
 
 const navigationBar = body.querySelector('#left-sidebar');
-const suggestionsBar = body.querySelector('#sidebar');
+const tooltipsBar = body.querySelector('#sidebar');
 
 const container = body.querySelector('#content');
 const content = container.querySelector('#mainbar')
@@ -100,8 +100,8 @@ function showOrHideNavigationBar() {
     navigationBar.classList.toggle('w-0');
 }
 
-function showOrHideSuggestionsBar() {
-    suggestionsBar.classList.toggle('d-none');
+function showOrHideTooltipsBar() {
+    tooltipsBar.classList.toggle('d-none');
 }
 
 function setContainerBorder() {
@@ -143,13 +143,13 @@ const configurations = [{
         setContainerBorder();
     }
 }, {
-    property: 'hideSuggestionsBar',
+    property: 'hideTooltipsBar',
     enableFeature: () => {
-        showOrHideSuggestionsBar();
+        showOrHideTooltipsBar();
         resizeContent();
     },
     disableFeature: () => {
-        showOrHideSuggestionsBar();
+        showOrHideTooltipsBar();
         resizeContent();
     }
 }];
