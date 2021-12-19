@@ -17,7 +17,9 @@
         --background: hsl(210, 5%, 25%);
         --light-background: hsl(226, 5%, 30%);
         --orange: #e27b27f3;
-        --git-hub-icon: 'icons/github.svg'
+        --git-hub-icon: 'icons/github.svg';
+        --switch-heigth: 1.25rem;
+        --switch-width: calc(var(--switch-heigth) * 2);
     }
 
     body {
@@ -52,7 +54,7 @@
         border-top: 1px solid var(--light-background);
         border-bottom: 1px solid var(--light-background);
         margin: 1.66rem 0;
-        padding: .22rem 2rem;
+        padding: 0 2rem;
     }
 
     form {
@@ -63,7 +65,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin: 1.33rem 0;
+        margin: 1.5rem 0;
         user-select: none;
     }
 
@@ -81,12 +83,60 @@
         color: var(--dark-foreground);
     }
 
-    label input {
+    label .switch {
         display: block;
-        height: 1.25rem;
-        width: 1.25rem;
-        outline: none;
+        position: relative;
+    }
+
+    label .switch,
+    label .switch .slider {
+        height: var(--switch-heigth);
+        width: var(--switch-width);
+    }
+
+    label .switch .slider {
         cursor: pointer;
+        position: absolute;
+        padding: 4px;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--dark-foreground);
+        transition: .4s;
+    }
+
+    label .switch .slider,
+    label .switch .slider:before {
+        border-radius: var(--switch-heigth);
+        transition: .2s ease-in-out;
+
+    }
+
+    label .switch .slider:before {
+        position: absolute;
+        content: "";
+        height: var(--switch-heigth);
+        width: var(--switch-heigth);
+        background-color: var(--foreground);
+    }
+
+    label .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    label .switch input:checked + .slider {
+        background-color: var(--orange);
+    }
+
+    label .switch input:focus + .slider {
+        box-shadow: 0 0 1px var(--orange);
+    }
+
+    label .switch input:checked + .slider:before {
+        transform: translateX(100%);
     }
 
     footer {
@@ -133,28 +183,40 @@
                     <div>Highlight the correct answer</div>
                     <p>The correct answer, if present, will highlight with a green background.</p>
                 </div>
-                <input id="highlightAnswer" type="checkbox">
+                <div class="switch">
+                    <input id="highlightAnswer" type="checkbox">
+                    <span class="slider"></span>
+                </div>
             </label>
             <label for="addButton">
                 <div>
                     <div>"Jump to the answer" button</div>
                     <p>If ther's correct answer, a button will be added in the question header, near the "ask a question" button. Clicking the new button, the page will scroll to the correct answer.</p>
                 </div>
-                <input id="addButton" type="checkbox">
+                <div class="switch">
+                    <input id="addButton" type="checkbox">
+                    <span class="slider"></span>
+                </div>
             </label>
             <label for="hideNavBar">
                 <div>
                     <div>Hide the navigation bar</div>
                     <p>The left navigation will be hide in order to improve your focus.</p>
                 </div>
-                <input id="hideNavBar" type="checkbox">
+                <div class="switch">
+                    <input id="hideNavBar" type="checkbox">
+                    <span class="slider"></span>
+                </div>
             </label>
             <label for="hideSuggestionsBar">
                 <div>
                     <div>Hide the suggestions bar</div>
                     <p>The suggestions and the hot question network will be hide in order to improve your focus.</p>
                 </div>
-                <input id="hideSuggestionsBar" type="checkbox">
+                <div class="switch">
+                    <input id="hideSuggestionsBar" type="checkbox">
+                    <span class="slider"></span>
+                </div>
             </label>
         </form>
 
@@ -168,11 +230,11 @@
    </footer>
 </body>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     const iconPath = 'icons/github.svg';
     const absoluteIconPath = chrome.runtime.getURL(iconPath);
     const cssRoot = document.querySelector(':root');
     cssRoot.style.setProperty('--git-hub-icon', absoluteIconPath);
-</script>
+</script> -->
 
 </html>
