@@ -1,25 +1,17 @@
 const body = document.querySelector('body');
+const correctAnswer = body.querySelector('.accepted-answer');
 
 /* ================
-Jump to the answer
+Highlight answer
 ================ */
 
-const header = body.querySelector('header.top-bar');
-
-const correctAnswer = body.querySelector('.accepted-answer');
-const questionHeader = body.querySelector('#question-header');
-
-const darkColor = '#273C3B';
-const lightColor = '#dffde8';
-
-const iconPath = 'icons/stackOverflowBulb.svg';
 
 function updateCorrectAnswerStyle() {
-    changeAnswerColor();
+    highlightAnswerColor();
     removePreviousAnswerBorder();
 }
 
-function changeAnswerColor() {
+function highlightAnswerColor() {
     correctAnswer.style.backgroundColor = getColor();
 }
 
@@ -32,6 +24,22 @@ function removePreviousAnswerBorder() {
     const previousAnswer = correctAnswer.previousElementSibling.previousElementSibling;
     if (previousAnswer) previousAnswer.style.borderBottom = 'unset';
 }
+
+function removeAnswerHighlightment() {
+    correctAnswer.style.backgroundColor = 'unset';
+}
+
+/* ================
+Jump to the answer
+================ */
+
+const header = body.querySelector('header.top-bar');
+const questionHeader = body.querySelector('#question-header');
+
+const darkColor = '#273C3B';
+const lightColor = '#dffde8';
+
+const iconPath = 'icons/stackOverflowBulb.svg';
 
 function injectButton(){
     const button = document.createElement('button');
@@ -71,35 +79,74 @@ function getAnswerPosition() {
     return answerTopPosition - heanderHeight;
 }
 
+function removeButton() {
+    const button = questionHeader.querySelector('#jumpToAnswerButton');
+    button.remove();
+}
+
 /* ================
-Configuration
+Show or hide side navs
 ================ */
 
 const navigationBar = body.querySelector('#left-sidebar');
 const suggestionsBar = body.querySelector('#sidebar');
 const container = body.querySelector('#content');
-const mainContent = container.querySelector('#mainbar')
+const content = container.querySelector('#mainbar')
+
+function showOrHide(nav) {
+    nav.classList.toggle('d-none');
+}
+
+function resizecontent() {
+    container.classList.toggle('enlarged');
+    content.classList.toggle('enlarged');
+}
+
+function setContainerBorder() {
+    container.classList.toggle('no-border');
+}
+
+/* ================
+Configuration
+================ */
+
 
 const configurations = [{
     property: 'addButton',
     enableFeature: () => {
         if (correctAnswer) injectButton();
     },
-    disableFeature: () => {}
+    disableFeature: () => {
+        if (correctAnswer) removeButton();
+    }
 }, {
     property: 'highlightAnswer',
     enableFeature: () => {
         if (correctAnswer) updateCorrectAnswerStyle();
     },
-    disableFeature: () => {}
+    disableFeature: () => {
+        if (correctAnswer) removeAnswerHighlightment();
+    }
 }, {
     property: 'hideNavBar',
-    enableFeature: () => {},
-    disableFeature: () => {}
+    enableFeature: () => {
+        showOrHide(navigationBar);
+        setContainerBorder();
+    },
+    disableFeature: () => {
+        showOrHide(navigationBar);
+        setContainerBorder();
+    }
 }, {
     property: 'hideSuggestionsBar',
-    enableFeature: () => {},
-    disableFeature: () => {}
+    enableFeature: () => {
+        showOrHide(suggestionsBar);
+        resizecontent();
+    },
+    disableFeature: () => {
+        showOrHide(suggestionsBar);
+        resizecontent();
+    }
 }];
 
 configurations.forEach(configuration => {  
@@ -109,7 +156,7 @@ configurations.forEach(configuration => {
     });
 });
 
-chrome.storage.onChanged.addListener((changes, namespace) => {
+chrome.storage.onChanged.addListener(changes  => {
     const property = Object.keys(changes)[0];
     const configuration = configurations.find(configuration => configuration.property === property);
     if (configuration) {
