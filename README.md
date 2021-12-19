@@ -35,4 +35,4 @@ Download the repository. Go to your browser's extensions page, then turn on deve
 
 ## License
 
-StackOverflowTweaksTool is provided under the MIT license.
+StackOverflow Tweaks Tool is provided under the MIT license.
