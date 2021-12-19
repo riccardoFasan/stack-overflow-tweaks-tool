@@ -20,18 +20,9 @@ Now you can hide the navigation and tooltip bars, so that nothing can distract y
 
 ## Installation
 
-### Microsoft Edge
-
-The extension is available on Microsoft Store [here](https://microsoftedge.microsoft.com/addons/detail/stackoverflow-tweaks-tool/njpnponmdmhbeojlcdffcliceolmambc?form=MT001Y).
-
-### Other Chromium browsers
-
-For other Chromium browsers, such as Google Chrome, the extension needs to be installed manually.
-StackOverflow Tweaks Tool will be available on the Chrome Web Store as soon as possible.
-
-### Install from source
-
 Download the repository. Go to your browser's extensions page, then turn on developer mode and load the src directory by clicking "load unpacked". Visit this [page](https://dev.to/ben/how-to-install-chrome-extensions-manually-from-github-1612) for more information on how to manually install an unpacked extension.
+
+StackOverflow Tweaks Tool will be available on the Chrome Web Store as soon as possible.
 
 ## License
 
