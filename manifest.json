@@ -16,8 +16,7 @@
         {
             "resources": [
                 "icons/bulb.svg",
-                "icons/stackOverflowBulb.svg",
-                "icons/github.svg"
+                "icons/stackOverflowBulb.svg"
             ],
             "matches": [
                 "https://stackoverflow.com/*"
