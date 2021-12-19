@@ -102,6 +102,13 @@ const configurations = [{
     disableFeature: () => {}
 }];
 
+configurations.forEach(configuration => {  
+    chrome.storage.sync.get(configuration.property, (property) => {
+        const value = property[configuration.property];
+        if (value) configuration.enableFeature();
+    });
+});
+
 chrome.storage.onChanged.addListener((changes, namespace) => {
     const property = Object.keys(changes)[0];
     const configuration = configurations.find(configuration => configuration.property === property);
