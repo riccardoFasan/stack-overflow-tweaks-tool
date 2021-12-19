@@ -14,13 +14,6 @@ const lightColor = '#dffde8';
 
 const iconPath = 'icons/stackOverflowBulb.svg';
 
-if (correctAnswer) {
-    updateCorrectAnswerStyle();
-    injectButton();
-} else {
-    console.log('StackOverflowTweaksTool: No correct answers yet 😭.');
-}
-
 function updateCorrectAnswerStyle() {
     changeAnswerColor();
     removePreviousAnswerBorder();
@@ -75,7 +68,6 @@ function jumpToTheAnswer() {
 function getAnswerPosition() {
     const answerTopPosition = correctAnswer.offsetTop;
     const heanderHeight = header.clientHeight;
-    console.log(answerTopPosition, heanderHeight)
     return answerTopPosition - heanderHeight;
 }
 
@@ -87,3 +79,34 @@ const navigationBar = body.querySelector('#left-sidebar');
 const suggestionsBar = body.querySelector('#sidebar');
 const container = body.querySelector('#content');
 const mainContent = container.querySelector('#mainbar')
+
+const configurations = [{
+    property: 'addButton',
+    enableFeature: () => {
+        if (correctAnswer) injectButton();
+    },
+    disableFeature: () => {}
+}, {
+    property: 'highlightAnswer',
+    enableFeature: () => {
+        if (correctAnswer) updateCorrectAnswerStyle();
+    },
+    disableFeature: () => {}
+}, {
+    property: 'hideNavBar',
+    enableFeature: () => {},
+    disableFeature: () => {}
+}, {
+    property: 'hideSuggestionsBar',
+    enableFeature: () => {},
+    disableFeature: () => {}
+}];
+
+chrome.storage.onChanged.addListener((changes, namespace) => {
+    const property = Object.keys(changes)[0];
+    const configuration = configurations.find(configuration => configuration.property === property);
+    if (configuration) {
+        const enable = changes[property].newValue;
+        configuration[enable ? 'enableFeature' : 'disableFeature']();
+    }
+});
