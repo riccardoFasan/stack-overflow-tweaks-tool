@@ -1,5 +1,11 @@
 {
     "manifest_version": 2,
+    "browser_specific_settings": {
+        "gecko": {
+          "strict_min_version": "42.0",
+          "id" : "stackoverflowtweakstools@richard.com"
+        }
+      },
     "name": "StackOverflow Tweaks Tool",
     "description": "A tool to tweak the StackOverflow UI and boost your productivity.",
     "version": "1.1.0",

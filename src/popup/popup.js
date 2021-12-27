@@ -15,7 +15,7 @@ function setStorageValue(propertyName, propertyValue) {
 
 function getStorageValue(propertyName) {
     return new Promise(resolve => {    
-        browser.storage.sync.get(propertyName, (property) => {
+        browser.storage.sync.get(propertyName).then(property => {
             resolve(property[propertyName])
         });
     });

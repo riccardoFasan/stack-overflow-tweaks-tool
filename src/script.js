@@ -154,8 +154,8 @@ const configurations = [{
     }
 }];
 
-configurations.forEach(configuration => {  
-    browser.storage.sync.get(configuration.property, (property) => {
+configurations.forEach(configuration => {
+    browser.storage.sync.get(configuration.property).then(property => {
         const value = property[configuration.property];
         if (value) configuration.enableFeature();
     });
