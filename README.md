@@ -24,7 +24,7 @@ Download the repository. Go to your browser's extensions page, then turn on deve
 
 StackOverflow Tweaks Tool will be available on the Chrome Web Store as soon as possible.
 
-> **⚠️** The main brach contains the chromium version of the extension. Switch to the "firefox-version" branch if you want to install it on Firefox.
+> **⚠️** The main branch contains the chromium version of the extension. Switch to the "firefox-version" branch if you want to install it on Firefox.
 
 ## License
 
