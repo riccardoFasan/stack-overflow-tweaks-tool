@@ -9,9 +9,7 @@
         "128": "icons/StackOverlowTweaksTool_128.png"
     },
     "permissions": [
-        "storage",
-        "activeTab",
-        "scripting"
+        "storage"
     ],
     "background": {
         "service_worker": "background.js"
