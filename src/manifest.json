@@ -1,5 +1,5 @@
 {
-    "manifest_version": 3,
+    "manifest_version": 2,
     "name": "StackOverflow Tweaks Tool",
     "description": "A tool to tweak the StackOverflow UI and boost your productivity.",
     "version": "1.1.0",
@@ -10,26 +10,17 @@
     },
     "permissions": [
         "storage",
-        "activeTab",
-        "scripting"
+        "activeTab"
     ],
     "background": {
-        "service_worker": "background.js"
+        "scripts": [ "background.js" ]
     },
-    "action": {
+    "browser_action": {
         "default_title": "StackOverflow Tweaks Tool",
         "default_popup": "./popup/popup.html"
     },
     "web_accessible_resources": [
-        {
-            "resources": [
-                "icons/bulb.svg",
-                "icons/stackOverflowBulb.svg"
-            ],
-            "matches": [
-                "https://stackoverflow.com/*"
-            ]
-        }
+        "icons/stackOverflowBulb.svg"
     ],
     "content_scripts": [
         {

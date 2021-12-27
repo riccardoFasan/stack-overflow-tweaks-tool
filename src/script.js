@@ -66,7 +66,7 @@ function injectButton(){
 }
 
 function getImageURL() {
-    return chrome.runtime.getURL(iconPath);
+    return browser.runtime.getURL(iconPath);
 }
 
 function jumpToTheAnswer() {
@@ -155,13 +155,13 @@ const configurations = [{
 }];
 
 configurations.forEach(configuration => {  
-    chrome.storage.sync.get(configuration.property, (property) => {
+    browser.storage.sync.get(configuration.property, (property) => {
         const value = property[configuration.property];
         if (value) configuration.enableFeature();
     });
 });
 
-chrome.storage.onChanged.addListener(changes  => {
+browser.storage.onChanged.addListener(changes  => {
     const property = Object.keys(changes)[0];
     const configuration = configurations.find(configuration => configuration.property === property);
     if (configuration) {
