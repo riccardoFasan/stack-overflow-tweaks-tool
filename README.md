@@ -22,7 +22,7 @@ Now you can hide the navigation and tooltip bars, so that nothing can distract y
 
 ### Firefox
 
-StackOveflow is availbale on the Firefox add-ons [here](https://addons.mozilla.org/it/firefox/addon/stackoverflow-tweaks-tool/). 
+StackOveflow Tweaks Tool is availbale on the Firefox add-ons [here](https://addons.mozilla.org/it/firefox/addon/stackoverflow-tweaks-tool/). 
 
 ### Manual installation
 
