@@ -4,80 +4,81 @@
     --background: hsl(207, 6%, 29%);
     --light-background: hsl(210, 6%, 38%);
     --orange: #e27b27f3;
-    --git-hub-icon: 'icons/github.svg';
+    --git-hub-icon: "icons/github.svg";
     --switch-heigth: 1.25rem;
     --switch-width: calc(var(--switch-heigth) * 2);
-}
-
-body {
+  }
+  
+  body {
     font-size: 16px;
     margin: 0;
     padding: 0;
     width: 35em;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Liberation Sans", sans-serif;;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Liberation Sans",
+      sans-serif;
     background-color: var(--background);
-    color:  var(--foreground);
-}
-
-header {
+    color: var(--foreground);
+  }
+  
+  header {
     padding: 2rem 2rem 0 2rem;
-}
-
-h1 {
+  }
+  
+  h1 {
     font-size: 1.33rem;
-}
-
-p,
-h1 {
+  }
+  
+  p,
+  h1 {
     margin: 0;
-    padding: 0; 
-}
-
-p {
+    padding: 0;
+  }
+  
+  p {
     line-height: 1.5;
-}
-
-main {
+  }
+  
+  main {
     border-top: 1px solid var(--light-background);
     border-bottom: 1px solid var(--light-background);
     margin: 1.66rem 0;
     padding: 0 2rem;
-}
-
-label {
+  }
+  
+  label {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 1.75rem 0;
     user-select: none;
-}
-
-label > div {
+  }
+  
+  label > div {
     max-width: 85%;
-}
-
-label > div > div {
+  }
+  
+  label > div > div {
     font-weight: 600;
-}
-
-label p {
-    margin-top: .33rem;
-    font-size: .85rem;
+  }
+  
+  label p {
+    margin-top: 0.33rem;
+    font-size: 0.85rem;
     color: var(--dark-foreground);
-}
-
-label .switch {
+  }
+  
+  label .switch {
     display: block;
     position: relative;
-}
-
-label .switch,
-label .switch .slider {
+  }
+  
+  label .switch,
+  label .switch .slider {
     height: var(--switch-heigth);
     width: var(--switch-width);
-}
-
-label .switch .slider {
+  }
+  
+  label .switch .slider {
     cursor: pointer;
     position: absolute;
     padding: 4px;
@@ -86,64 +87,82 @@ label .switch .slider {
     right: 0;
     bottom: 0;
     background-color: var(--dark-foreground);
-    transition: .4s;
-}
-
-label .switch .slider,
-label .switch .slider:before {
+    transition: 0.4s;
+  }
+  
+  label .switch .slider,
+  label .switch .slider:before {
     border-radius: var(--switch-heigth);
-    transition: .2s ease-in-out;
-
-}
-
-label .switch .slider:before {
+    transition: 0.2s ease-in-out;
+  }
+  
+  label .switch .slider:before {
     position: absolute;
     content: "";
     height: var(--switch-heigth);
     width: var(--switch-heigth);
     background-color: var(--foreground);
-}
-
-label .switch input {
+  }
+  
+  label .switch input {
     opacity: 0;
     width: 0;
     height: 0;
-}
-
-label .switch input:checked + .slider {
+  }
+  
+  label .switch input:checked + .slider {
     background-color: var(--orange);
-}
-
-label .switch input:focus + .slider {
+  }
+  
+  label .switch input:focus + .slider {
     box-shadow: 0 0 1px var(--orange);
-}
-
-label .switch input:checked + .slider:before {
+  }
+  
+  label .switch input:checked + .slider:before {
     transform: translateX(100%);
-}
-
-footer {
+  }
+  
+  footer {
     padding: 0 2rem 1.75rem 2rem;
-    font-size: .85rem;
+    font-size: 0.85rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: var(--dark-foreground);
-}
-
-footer #icon {
+  }
+  
+  footer ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  footer ul li {
+    display: block;
+  }
+  
+  footer ul li:first-child {
+    margin-right: 1rem;
+  }
+  
+  footer ul li .icon {
     display: block;
     cursor: pointer;
-    transition: .3s;
+    transition: 0.3s;
     height: 1.66rem;
     width: 1.66rem;
-}
-
-footer #icon path {
+  }
+  
+  footer ul li .icon path {
     fill: var(--dark-foreground);
-    transition: .3s ease-in-out;
-}
-
-footer #icon:hover path{
+    transition: 0.3s ease-in-out;
+  }
+  
+  footer ul li .icon:hover path {
     fill: var(--orange);
-}
+  }
+  
