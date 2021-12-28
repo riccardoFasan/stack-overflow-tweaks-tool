@@ -42,11 +42,12 @@ const lightColor = '#dffde8';
 
 const iconPath = 'icons/stackOverflowBulb.svg';
 
+
 function injectButton(){
     const button = document.createElement('button');
     button.setAttribute('id', 'jumpToAnswerButton');
     button.setAttribute('class', 'ws-nowrap s-btn s-btn__primary');
-
+    
     const text = document.createElement('div');
     text.setAttribute('class', 'text');
     text.innerText = 'Jump to the Answer';
@@ -54,15 +55,15 @@ function injectButton(){
     const icon = document.createElement('div');
     icon.setAttribute('class', 'icon');
     icon.style.backgroundImage = `url(${getImageURL()})`;
-
+    
     questionHeader.appendChild(button);
     button.appendChild(icon);
     button.appendChild(text);
-
+    
     button.addEventListener('click', () => {
         jumpToTheAnswer();
     });
-
+    
 }
 
 function getImageURL() {

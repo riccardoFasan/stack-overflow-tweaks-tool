@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "StackOverflow Tweaks Tool",
     "description": "A tool to tweak the StackOverflow UI and boost your productivity.",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "icons": {
         "16": "icons/StackOverlowTweaksTool_16.png",
         "48": "icons/StackOverlowTweaksTool_48.png",
@@ -12,16 +12,15 @@
         "storage"
     ],
     "background": {
-        "service_worker": "background.js"
+        "service_worker": "js/background.js"
     },
     "action": {
         "default_title": "StackOverflow Tweaks Tool",
-        "default_popup": "./popup/popup.html"
+        "default_popup": "popup.html"
     },
     "web_accessible_resources": [
         {
             "resources": [
-                "icons/bulb.svg",
                 "icons/stackOverflowBulb.svg"
             ],
             "matches": [
@@ -32,10 +31,10 @@
     "content_scripts": [
         {
             "js": [
-                "script.js"
+                "js/script.js"
             ],
             "css": [
-                "style.css"
+                "css/style.css"
             ],
             "matches": [
                 "*://stackoverflow.com/questions/*"

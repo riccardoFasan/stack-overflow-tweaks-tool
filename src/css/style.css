@@ -1,0 +1,48 @@
+html {
+  scroll-behavior: smooth; }
+  html #question-header > h1 {
+    transition: 0.3s;
+    padding-right: 10px; }
+  html #answers .answer.accepted-answer {
+    transition: 0.3s;
+    padding: 30px 20px;
+    width: calc(100% + 20px);
+    margin: 100px -20px 100px 0;
+    border-radius: 10px;
+    border-bottom: unset;
+    border: 1px solid var(--black-100); }
+  html #jumpToAnswerButton {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 15px;
+    max-height: 37.78px;
+    background-color: #c26920; }
+    html #jumpToAnswerButton:hover {
+      background-color: #e27b27f3; }
+    html #jumpToAnswerButton .icon {
+      margin-right: 5px;
+      width: 15px;
+      height: 15px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain; }
+  html .container #content {
+    max-width: unset;
+    width: 100%; }
+    html .container #content.no-border {
+      border: none; }
+  html .container #left-sidebar,
+  html .container #sidebar,
+  html .container #mainbar {
+    transition: 0.3s ease-in-out; }
+  html .container #left-sidebar.w-0,
+  html .container #sidebar.w-0 {
+    width: 0;
+    height: 0;
+    opacity: 0; }
+  html .container #sidebar.d-none {
+    display: none; }
+  html .container #mainbar.w-100 {
+    width: 100%; }
