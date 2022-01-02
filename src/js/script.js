@@ -1,34 +1,33 @@
 const body = document.querySelector('body');
 const correctAnswer = body.querySelector('.accepted-answer');
 
-
 /* ================
 Highlight answer
 ================ */
 
 function updateCorrectAnswerStyle() {
-    highlightAnswerColor();
-    removePreviousAnswerBorder();
+	highlightAnswerColor();
+	removePreviousAnswerBorder();
 }
 
 function highlightAnswerColor() {
-    correctAnswer.style.backgroundColor = getColor();
+	correctAnswer.style.backgroundColor = getColor();
 }
 
 function getColor() {
-    const isDarkTheme = body.classList.contains('theme-dark');
-    return isDarkTheme ? darkColor : lightColor;
+	const isDarkTheme = body.classList.contains('theme-dark');
+	return isDarkTheme ? darkColor : lightColor;
 }
 
 function removePreviousAnswerBorder() {
-    const previousAnswer = correctAnswer.previousElementSibling.previousElementSibling;
-    if (previousAnswer) previousAnswer.style.borderBottom = 'unset';
+	const previousAnswer =
+		correctAnswer.previousElementSibling.previousElementSibling;
+	if (previousAnswer) previousAnswer.style.borderBottom = 'unset';
 }
 
 function removeAnswerHighlightment() {
-    correctAnswer.style.backgroundColor = 'unset';
+	correctAnswer.style.backgroundColor = 'unset';
 }
-
 
 /* ================
 Jump to the answer
@@ -42,50 +41,47 @@ const lightColor = '#dffde8';
 
 const iconPath = 'icons/stackOverflowBulb.svg';
 
+function injectButton() {
+	const button = document.createElement('button');
+	button.setAttribute('id', 'jumpToAnswerButton');
+	button.setAttribute('class', 'ws-nowrap s-btn s-btn__primary');
 
-function injectButton(){
-    const button = document.createElement('button');
-    button.setAttribute('id', 'jumpToAnswerButton');
-    button.setAttribute('class', 'ws-nowrap s-btn s-btn__primary');
-    
-    const text = document.createElement('div');
-    text.setAttribute('class', 'text');
-    text.innerText = 'Jump to the Answer';
-    
-    const icon = document.createElement('div');
-    icon.setAttribute('class', 'icon');
-    icon.style.backgroundImage = `url(${getImageURL()})`;
-    
-    questionHeader.appendChild(button);
-    button.appendChild(icon);
-    button.appendChild(text);
-    
-    button.addEventListener('click', () => {
-        jumpToTheAnswer();
-    });
-    
+	const text = document.createElement('div');
+	text.setAttribute('class', 'text');
+	text.innerText = 'Jump to the Answer';
+
+	const icon = document.createElement('div');
+	icon.setAttribute('class', 'icon');
+	icon.style.backgroundImage = `url(${getImageURL()})`;
+
+	questionHeader.appendChild(button);
+	button.appendChild(icon);
+	button.appendChild(text);
+
+	button.addEventListener('click', () => {
+		jumpToTheAnswer();
+	});
 }
 
 function getImageURL() {
-    return chrome.runtime.getURL(iconPath);
+	return chrome.runtime.getURL(iconPath);
 }
 
 function jumpToTheAnswer() {
-    const position = getAnswerPosition();
-    window.scrollTo(0, position);
+	const position = getAnswerPosition();
+	window.scrollTo(0, position);
 }
 
 function getAnswerPosition() {
-    const answerTopPosition = correctAnswer.offsetTop;
-    const heanderHeight = header.clientHeight;
-    return answerTopPosition - heanderHeight;
+	const answerTopPosition = correctAnswer.offsetTop;
+	const heanderHeight = header.clientHeight;
+	return answerTopPosition - heanderHeight;
 }
 
 function removeButton() {
-    const button = questionHeader.querySelector('#jumpToAnswerButton');
-    button.remove();
+	const button = questionHeader.querySelector('#jumpToAnswerButton');
+	button.remove();
 }
-
 
 /* ================
 Show or hide side navs
@@ -95,78 +91,85 @@ const navigationBar = body.querySelector('#left-sidebar');
 const tooltipsBar = body.querySelector('#sidebar');
 
 const container = body.querySelector('#content');
-const content = container.querySelector('#mainbar')
+const content = container.querySelector('#mainbar');
 
 function showOrHideNavigationBar() {
-    navigationBar.classList.toggle('w-0');
+	navigationBar.classList.toggle('w-0');
 }
 
 function showOrHideTooltipsBar() {
-    tooltipsBar.classList.toggle('d-none');
+	tooltipsBar.classList.toggle('d-none');
 }
 
 function setContainerBorder() {
-    container.classList.toggle('no-border');
+	container.classList.toggle('no-border');
 }
 
 function resizeContent() {
-    content.classList.toggle('w-100');
+	content.classList.toggle('w-100');
 }
 
 /* ================
 Configuration
 ================ */
 
-const configurations = [{
-    property: 'addButton',
-    enableFeature: () => {
-        if (correctAnswer) injectButton();
-    },
-    disableFeature: () => {
-        if (correctAnswer) removeButton();
-    }
-}, {
-    property: 'highlightAnswer',
-    enableFeature: () => {
-        if (correctAnswer) updateCorrectAnswerStyle();
-    },
-    disableFeature: () => {
-        if (correctAnswer) removeAnswerHighlightment();
-    }
-}, {
-    property: 'hideNavBar',
-    enableFeature: () => {
-        showOrHideNavigationBar();
-        setContainerBorder();
-    },
-    disableFeature: () => {
-        showOrHideNavigationBar();
-        setContainerBorder();
-    }
-}, {
-    property: 'hideTooltipsBar',
-    enableFeature: () => {
-        showOrHideTooltipsBar();
-        resizeContent();
-    },
-    disableFeature: () => {
-        showOrHideTooltipsBar();
-        resizeContent();
-    }
-}];
+const configurations = [
+	{
+		property: 'addButton',
+		enableFeature: () => {
+			if (correctAnswer) injectButton();
+		},
+		disableFeature: () => {
+			if (correctAnswer) removeButton();
+		},
+	},
+	{
+		property: 'highlightAnswer',
+		enableFeature: () => {
+			if (correctAnswer) updateCorrectAnswerStyle();
+		},
+		disableFeature: () => {
+			if (correctAnswer) removeAnswerHighlightment();
+		},
+	},
+	{
+		property: 'hideNavBar',
+		enableFeature: () => {
+			showOrHideNavigationBar();
+			setContainerBorder();
+		},
+		disableFeature: () => {
+			showOrHideNavigationBar();
+			setContainerBorder();
+		},
+	},
+	{
+		property: 'hideTooltipsBar',
+		enableFeature: () => {
+			showOrHideTooltipsBar();
+			resizeContent();
+		},
+		disableFeature: () => {
+			showOrHideTooltipsBar();
+			resizeContent();
+		},
+	},
+];
 
-configurations.forEach(configuration => {  
-    chrome.storage.sync.get(configuration.property, (property) => {
-        const value = property[configuration.property];
-        if (value) configuration.enableFeature();
-    });
+configurations.forEach((configuration) => {
+	chrome.storage.sync.get(configuration.property, (property) => {
+		const value = property[configuration.property];
+		if (value) configuration.enableFeature();
+	});
 });
 
-chrome.storage.onChanged.addListener(changes  => {
-    const property = Object.keys(changes)[0];
-    const configuration = configurations.find(configuration => configuration.property === property);
-    if (configuration) {
-        const enable = changes[property].newValue;
-        configuration[enable ? 'enableFeature' : 'disableFeature']();
-    }
+chrome.storage.onChanged.addListener((changes) => {
+	const property = Object.keys(changes)[0];
+	const configuration = configurations.find(
+		(configuration) => configuration.property === property
+	);
+	if (configuration) {
+		const enable = changes[property].newValue;
+		configuration[enable ? 'enableFeature' : 'disableFeature']();
+	}
 });
