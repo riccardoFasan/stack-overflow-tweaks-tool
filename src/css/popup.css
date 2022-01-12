@@ -2,16 +2,16 @@ body {
   font-size: 16px;
   margin: 0;
   padding: 0;
-  width: 35em;
+  width: 37em;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Liberation Sans", sans-serif;
   background-color: #464a4e;
   color: white;
 }
 body header {
-  padding: 2rem 2rem 0 2rem;
+  padding: 1.75rem 1.75rem 0 1.75rem;
 }
 body h1 {
-  font-size: 1.33rem;
+  font-size: 1.25rem;
 }
 body p,
 body h1 {
@@ -25,24 +25,25 @@ body main {
   border-top: 1px solid #5b6167;
   border-bottom: 1px solid #5b6167;
   margin: 1.66rem 0;
-  padding: 0 2rem;
+  padding: 0 1.75rem;
 }
 body label {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 1.75rem 0;
+  margin: 1.5rem 0;
   user-select: none;
 }
 body label > div {
   max-width: 85%;
 }
 body label > div > div {
+  font-size: 0.9rem;
   font-weight: 600;
 }
 body label p {
   margin-top: 0.33rem;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.65);
 }
 body label .switch {
@@ -51,8 +52,8 @@ body label .switch {
 }
 body label .switch,
 body label .switch .slider {
-  height: 1.25rem;
-  width: 2.5rem;
+  height: 1.2rem;
+  width: 2.4rem;
 }
 body label .switch .slider {
   cursor: pointer;
@@ -66,14 +67,14 @@ body label .switch .slider {
   transition: 0.4s;
 }
 body label .switch .slider, body label .switch .slider:before {
-  border-radius: 1.25rem;
+  border-radius: 1.2rem;
   transition: 0.2s ease-in-out;
 }
 body label .switch .slider:before {
   position: absolute;
   content: "";
-  height: 1.25rem;
-  width: 1.25rem;
+  height: 1.2rem;
+  width: 1.2rem;
   background-color: white;
 }
 body label .switch input {
@@ -91,7 +92,7 @@ body label .switch input:focus + .slider {
   box-shadow: 0 0 1px #e27b27f3;
 }
 body footer {
-  padding: 0 2rem 1.75rem 2rem;
+  padding: 0 1.75rem 1.66rem 1.75rem;
   font-size: 0.85rem;
   display: flex;
   justify-content: space-between;
