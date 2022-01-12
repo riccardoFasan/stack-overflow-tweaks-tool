@@ -20,8 +20,7 @@ function getColor() {
 }
 
 function removePreviousAnswerBorder() {
-	const previousAnswer =
-		correctAnswer.previousElementSibling.previousElementSibling;
+	const previousAnswer = correctAnswer.previousElementSibling.previousElementSibling;
 	if (previousAnswer) previousAnswer.style.borderBottom = 'unset';
 }
 
@@ -84,6 +83,70 @@ function removeButton() {
 }
 
 /* ================
+Copy answer link
+================ */
+
+const answers = body.querySelectorAll('#answers div.answer');
+
+function addHashtags() {
+	answers.forEach(answer => {
+		addHashtagToAnswer(answer);
+	});
+}
+
+function addHashtagToAnswer(answer) {
+	const votingContainer = answer.querySelector('.js-voting-container');
+	const buttonUp = votingContainer.querySelector('.js-vote-up-btn');
+	const hashtag = document.createElement('div');
+
+	hashtag.setAttribute('class', 'hashtag');
+	hashtag.setAttribute('title', 'Click to copy the answer link.');
+	hashtag.innerText = '#';
+
+	votingContainer.insertBefore(hashtag, buttonUp);
+
+	const answerId = answer.getAttribute('id');
+
+	hashtag.addEventListener('click', () => {
+		const link = getAnswerLink(answerId);
+		copyToClipboard(link);
+	});
+}
+
+function getAnswerLink(answerId) {
+	return `${window.location.href}#${answerId}`;
+}
+
+function removeHashtags() {
+	answers.forEach(answer => {
+		const hashtag = answer.querySelector('.hashtag');
+		hashtag.remove();
+	});
+}
+
+/* ================
+Utilities
+================ */
+
+function appendClipboardAlert() {
+	const clipboard = document.createElement('div');
+	clipboard.setAttribute('id', 'clipboard-alert');
+	clipboard.innerText = 'Copied to clipboard!';
+	body.appendChild(clipboard);
+}
+
+appendClipboardAlert();
+const clipboard = document.getElementById('clipboard-alert');
+
+function copyToClipboard(text) {
+	navigator.clipboard.writeText(text);
+	clipboard.classList.add('show');
+	setTimeout(() => {
+		clipboard.classList.remove('show');
+	}, 1000);
+}
+
+/* ================
 Show or hide side navs
 ================ */
 
@@ -133,6 +196,15 @@ const configurations = [
 		},
 	},
 	{
+		property: 'getAnswersLink',
+		enableFeature: () => {
+			addHashtags();
+		},
+		disableFeature: () => {
+			removeHashtags();
+		},
+	},
+	{
 		property: 'hideNavBar',
 		enableFeature: () => {
 			showOrHideNavigationBar();
@@ -156,18 +228,16 @@ const configurations = [
 	},
 ];
 
-configurations.forEach((configuration) => {
-	chrome.storage.sync.get(configuration.property, (property) => {
+configurations.forEach(configuration => {
+	chrome.storage.sync.get(configuration.property, property => {
 		const value = property[configuration.property];
 		if (value) configuration.enableFeature();
 	});
 });
 
-chrome.storage.onChanged.addListener((changes) => {
+chrome.storage.onChanged.addListener(changes => {
 	const property = Object.keys(changes)[0];
-	const configuration = configurations.find(
-		(configuration) => configuration.property === property
-	);
+	const configuration = configurations.find(configuration => configuration.property === property);
 	if (configuration) {
 		const enable = changes[property].newValue;
 		configuration[enable ? 'enableFeature' : 'disableFeature']();
