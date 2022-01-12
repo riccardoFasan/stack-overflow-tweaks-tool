@@ -114,7 +114,7 @@ function addHashtagToAnswer(answer) {
 }
 
 function getAnswerLink(answerId) {
-	return `${window.location.href}#${answerId}`;
+	return `https://${window.location.hostname}/${window.location.pathname}#${answerId}`;
 }
 
 function removeHashtags() {
