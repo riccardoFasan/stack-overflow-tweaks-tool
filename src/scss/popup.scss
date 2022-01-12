@@ -104,10 +104,6 @@ body {
 						transform: translateX(100%);
 					}
 				}
-
-				&:focus + .slider {
-					box-shadow: 0 0 1px colors.$orange;
-				}
 			}
 		}
 	}

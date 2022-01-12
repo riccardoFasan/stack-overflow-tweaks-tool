@@ -6,17 +6,12 @@ Highlight answer
 ================ */
 
 function updateCorrectAnswerStyle() {
-	highlightAnswerColor();
+	highlightAnswer();
 	removePreviousAnswerBorder();
 }
 
-function highlightAnswerColor() {
-	correctAnswer.style.backgroundColor = getColor();
-}
-
-function getColor() {
-	const isDarkTheme = body.classList.contains('theme-dark');
-	return isDarkTheme ? darkColor : lightColor;
+function highlightAnswer() {
+	correctAnswer.classList.toggle('bg-green');
 }
 
 function removePreviousAnswerBorder() {
@@ -25,7 +20,7 @@ function removePreviousAnswerBorder() {
 }
 
 function removeAnswerHighlightment() {
-	correctAnswer.style.backgroundColor = 'unset';
+	highlightAnswer();
 }
 
 /* ================
@@ -34,9 +29,6 @@ Jump to the answer
 
 const header = body.querySelector('header.top-bar');
 const questionHeader = body.querySelector('#question-header');
-
-const darkColor = '#273C3B';
-const lightColor = '#dffde8';
 
 const iconPath = 'icons/stackOverflowBulb.svg';
 
@@ -127,6 +119,17 @@ function removeHashtags() {
 /* ================
 Utilities
 ================ */
+
+const darkGreen = '#273C3B';
+const lightGreen = '#dffde8';
+
+setGreen();
+
+function setGreen() {
+	const isDarkTheme = body.classList.contains('theme-dark');
+	const green = isDarkTheme ? darkGreen : lightGreen;
+	document.documentElement.style.setProperty('--green', green);
+}
 
 function appendClipboardAlert() {
 	const clipboard = document.createElement('div');
