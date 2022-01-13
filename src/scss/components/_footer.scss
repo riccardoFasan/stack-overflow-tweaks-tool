@@ -1,0 +1,40 @@
+@use '../abstracts/colors' as colors;
+
+footer {
+	padding: 0 1.75rem 1.66rem 1.75rem;
+	font-size: 0.85rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: colors.$dark-foreground;
+
+	ul {
+		padding: 0;
+		margin: 0;
+		list-style-type: none;
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-end;
+		align-items: center;
+
+		li {
+			display: block;
+
+			&:first-child {
+				margin-right: 1rem;
+			}
+
+			.icon {
+				display: block;
+				transition: 0.3s;
+				height: 1.66rem;
+				width: 1.66rem;
+				background-color: colors.$dark-foreground;
+				transition: background-color 0.3s ease-in-out;
+				&:hover {
+					background-color: colors.$orange;
+				}
+			}
+		}
+	}
+}
