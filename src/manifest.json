@@ -31,7 +31,13 @@
     "content_scripts": [
         {
             "js": [
-                "js/script.js"
+                "js/content-scripts/common.js",
+                "js/content-scripts/features/feature.js",
+                "js/content-scripts/features/highlightAnswer.js",
+                "js/content-scripts/features/getAnswerLink.js",
+                "js/content-scripts/features/jumpToTheAnswer.js",
+                "js/content-scripts/features/navs.js",
+                "js/content-scripts/init.js"
             ],
             "css": [
                 "css/style.css"
