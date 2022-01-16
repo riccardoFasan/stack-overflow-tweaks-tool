@@ -2,7 +2,7 @@
 
 StackOverflow Tweaks Tool is  a **browser extension** made for developers. The extension provides a small control panel where you can customize the view of the StackOverflow question pages. It works on both Chromium and Firefox.
 
-<img title="" src="./docs/images/main-screen.jpg" alt="" data-align="center" width="567">
+![alt text](./docs/images/main-screen-2.jpg)
 
 ## Features
 
@@ -13,6 +13,14 @@ The correct answer, if any, will be highlighted with a green background.
 ### Jump to the answer
 
 If the answer is correct, a button will be added in the question header, next to the "ask a question" button. When you click the new button, the page will scroll to the correct answer.
+
+### Copy answer link
+
+An "#" will appear next to each answer. By clicking it the link of that answer will be copied on your clipboard.
+
+### Copy code blocks
+
+A button will appear in the top-right corner of any code block. By clicking it the content of the block will be copied on your clipboard.
 
 ### Improve your focus
 

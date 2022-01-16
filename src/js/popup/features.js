@@ -12,12 +12,12 @@ export const features = [
 	{
 		name: 'getAnswersLink',
 		title: 'Copy answers link',
-		text: 'A # will appear next to each answer. By clicking it the link of that answer will be copied on your clickboard.',
+		text: 'An "#" will appear next to each answer. By clicking it the link of that answer will be copied on your clipboard.',
 	},
 	{
 		name: 'copyCode',
-		title: 'Copy code',
-		text: 'A button will appear in the top-right corner of the code blocks. By clicking it the content of the block will be copied on your clipboard.',
+		title: 'Copy code blocks',
+		text: 'A button will appear in the top-right corner of any code block. By clicking it the content of the block will be copied on your clipboard.',
 	},
 	{
 		name: 'hideNavBar',
