@@ -1,0 +1,30 @@
+{
+  "name": "stack-overflow-tweaks-tool",
+  "version": "1.3.1",
+  "description": "A tool to tweak the StackOverflow UI and boost your productivity.",
+  "main": "manifest.json",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "sass": "sass src/scss:src/css --style compressed --no-source-map",
+    "sass-watch": "sass --watch src/scss:src/css --style compressed --no-source-map",
+    "prefix": "postcss --replace src/css --use autoprefixer",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/riccardoFasan/stack-overflow-tweaks-tool.git"
+  },
+  "author": "Riccardo Fasan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/riccardoFasan/stack-overflow-tweaks-tool/issues"
+  },
+  "homepage": "https://github.com/riccardoFasan/stack-overflow-tweaks-tool#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.2",
+    "postcss": "^8.4.5",
+    "sass": "^1.48.0"
+  }
+}
