@@ -1,0 +1,140 @@
+@use 'abstracts/colors' as colors;
+@use 'abstracts/mixins' as mixins;
+@use 'components/icons' as icons;
+
+html {
+	scroll-behavior: smooth;
+
+	#question-header > h1 {
+		@include mixins.transition;
+		padding-right: 10px;
+	}
+
+	#jumpToAnswerButton {
+		@include mixins.flex-center;
+		margin-left: 15px;
+		max-height: 37.78px;
+		background-color: colors.$primary;
+
+		&:hover {
+			background-color: colors.$dark-primary;
+		}
+
+		.icon {
+			margin-right: 5px;
+			height: 1.33rem;
+			width: 1.33rem;
+			background-color: colors.$foreground;
+		}
+	}
+
+	.container {
+		#content {
+			max-width: unset;
+			width: 100%;
+
+			&.no-border {
+				border: none;
+			}
+		}
+
+		#left-sidebar,
+		#sidebar,
+		#mainbar {
+			@include mixins.transition;
+		}
+
+		#left-sidebar,
+		#sidebar {
+			&.w-0 {
+				width: 0;
+				height: 0;
+				opacity: 0;
+			}
+		}
+
+		#sidebar.d-none {
+			display: none;
+		}
+
+		#mainbar {
+			&.w-100 {
+				width: 100%;
+			}
+
+			#answers .answer {
+				&.accepted-answer {
+					@include mixins.transition;
+					padding: 30px 20px;
+					width: calc(100% + 20px);
+					margin: 100px -20px 100px 0;
+					border-radius: 10px;
+					border-bottom: unset;
+					border: 1px solid var(--black-100);
+					&.bg-green {
+						background-color: colors.$green;
+					}
+				}
+
+				.votecell .js-voting-container .hashtag {
+					color: colors.$light-background;
+					font-size: 3rem;
+					font-weight: 500;
+					cursor: pointer;
+					text-align: center;
+					@include mixins.transition;
+					padding-bottom: 1.25rem;
+					line-height: 1;
+					&:hover {
+						color: colors.$primary;
+					}
+				}
+
+				.answercell .s-prose.js-post-body pre {
+					position: relative;
+					display: flex;
+					align-items: center;
+					min-height: 1.75rem;
+					box-sizing: content-box;
+
+					button.copy-button {
+						@include mixins.transition;
+						position: absolute;
+						top: 12px;
+						right: 12px;
+						height: 1.75rem;
+						width: 1.75rem;
+						cursor: pointer;
+						border: 0;
+						background-color: colors.$light-background;
+						&:hover {
+							background-color: colors.$primary;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	#clipboard-alert {
+		box-sizing: border-box;
+		border-radius: 1rem;
+		width: fit-content;
+		padding: 0.5rem 1.66rem;
+		color: colors.$foreground;
+		background-color: colors.$black;
+		text-align: center;
+		font-size: 1.33rem;
+		font-weight: 500;
+		position: fixed;
+		bottom: 20%;
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: 1000;
+		opacity: 0;
+		@include mixins.transition;
+		&.show {
+			opacity: 0.75;
+		}
+	}
+}
