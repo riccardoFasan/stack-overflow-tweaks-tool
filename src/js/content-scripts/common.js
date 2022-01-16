@@ -29,7 +29,7 @@ const content = container.querySelector('#mainbar');
 function setGreen() {
 	const isDarkTheme = body.classList.contains('theme-dark');
 	const green = isDarkTheme ? darkGreen : lightGreen;
-	setStyleVariable('green', green);
+	setStyleVariable('injected-green', green);
 }
 
 setGreen();

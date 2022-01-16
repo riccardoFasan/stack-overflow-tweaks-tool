@@ -8,12 +8,10 @@ function addCopyButtons() {
 }
 
 function addCopyButton(block) {
-	block.style.position = 'relative';
 
 	const button = document.createElement('button');
 	button.setAttribute('class', 'copy-button icon copy');
 	button.setAttribute('title', 'Click to copy.');
-	// button.style.backgroundImage = `url(${getImageURL(copyPath)})`;
 
 	block.appendChild(button);
 

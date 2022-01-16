@@ -95,6 +95,11 @@ html {
 
 				.answercell .s-prose.js-post-body pre {
 					position: relative;
+					display: flex;
+					align-items: center;
+					min-height: 1.75rem;
+					box-sizing: content-box;
+
 					button.copy-button {
 						@include mixins.transition;
 						position: absolute;

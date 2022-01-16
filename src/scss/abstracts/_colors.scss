@@ -1,5 +1,5 @@
 :root {
-	--green: '#dffde8';
+	--injected-green: '#dffde8';
 }
 
 $foreground: hsl(0, 0%, 100%);
@@ -9,4 +9,4 @@ $light-background: hsl(210, 6%, 38%);
 $primary: #e27b27f3;
 $dark-primary: darken($primary, 10%);
 $black: #111111;
-$green: var(--green);
+$green: var(--injected-green);
