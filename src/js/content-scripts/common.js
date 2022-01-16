@@ -6,12 +6,11 @@ const lightGreen = '#dffde8';
 
 const body = document.querySelector('body');
 
-const correctAnswer = body.querySelector('.accepted-answer');
-
 const header = body.querySelector('header.top-bar');
 const questionHeader = body.querySelector('#question-header');
 
 const answers = body.querySelectorAll('#answers div.answer');
+const correctAnswer = body.querySelector('.accepted-answer');
 
 const navigationBar = body.querySelector('#left-sidebar');
 const tooltipsBar = body.querySelector('#sidebar');
