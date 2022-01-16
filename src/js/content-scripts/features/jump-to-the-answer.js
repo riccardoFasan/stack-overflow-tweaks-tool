@@ -9,8 +9,7 @@ function injectButton() {
 		text.innerText = 'Jump to the Answer';
 
 		const icon = document.createElement('div');
-		icon.setAttribute('class', 'icon');
-		icon.style.backgroundImage = `url(${getImageURL(bulbPath)})`;
+		icon.setAttribute('class', 'icon bulb');
 
 		questionHeader.appendChild(button);
 		button.appendChild(icon);

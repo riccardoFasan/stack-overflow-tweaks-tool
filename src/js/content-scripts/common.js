@@ -1,5 +1,13 @@
-const bulbPath = 'icons/stackOverflowBulb.svg';
-const copyPath = 'icons/copy.svg';
+const injectableIcons = [
+	{
+		name: 'bulb',
+		path: 'icons/stackOverflowBulb.svg',
+	},
+	{
+		name: 'copy',
+		path: 'icons/copy.svg',
+	},
+];
 
 const darkGreen = '#273C3B';
 const lightGreen = '#dffde8';
@@ -21,10 +29,22 @@ const content = container.querySelector('#mainbar');
 function setGreen() {
 	const isDarkTheme = body.classList.contains('theme-dark');
 	const green = isDarkTheme ? darkGreen : lightGreen;
-	document.documentElement.style.setProperty('--green', green);
+	setStyleVariable('green', green);
 }
 
 setGreen();
+
+injectableIcons.forEach(icon => {
+	setStyleVariable(icon.name, `url('${getImageURL(icon.path)}')`);
+})
+
+function getImageURL(path) {
+	return chrome.runtime.getURL(path);
+}
+
+function setStyleVariable(name, value) {
+	document.documentElement.style.setProperty(`--${name}`, value);
+}
 
 function appendClipboardAlert() {
 	const clipboard = document.createElement('div');
@@ -42,8 +62,4 @@ function copyToClipboard(text) {
 	setTimeout(() => {
 		clipboard.classList.remove('show');
 	}, 1000);
-}
-
-function getImageURL(path) {
-	return chrome.runtime.getURL(path);
 }

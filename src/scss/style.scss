@@ -1,5 +1,6 @@
 @use 'abstracts/colors' as colors;
 @use 'abstracts/mixins' as mixins;
+@use 'components/icons' as icons;
 
 html {
 	scroll-behavior: smooth;
@@ -19,14 +20,14 @@ html {
 		background-color: colors.$primary;
 
 		&:hover {
-			background-color: colors.$dark-orange;
+			background-color: colors.$dark-primary;
 		}
 
 		.icon {
 			margin-right: 5px;
-			width: 15px;
-			height: 15px;
-			@include mixins.injected-icon;
+			height: 1.33rem;
+			width: 1.33rem;
+			background-color: colors.$foreground;
 		}
 	}
 
@@ -95,16 +96,18 @@ html {
 				.answercell .s-prose.js-post-body pre {
 					position: relative;
 					button.copy-button {
-						@include mixins.injected-icon;
 						@include mixins.transition;
 						position: absolute;
 						top: 12px;
 						right: 12px;
+						height: 1.75rem;
+						width: 1.75rem;
 						cursor: pointer;
-						height: 25px;
-						width: 25px;
-						background-color: transparent;
 						border: 0;
+						background-color: colors.$light-background;
+						&:hover {
+							background-color: colors.$primary;
+						}
 					}
 				}
 			}

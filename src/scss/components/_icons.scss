@@ -11,4 +11,10 @@ $icons: ('github', 'paypal');
 			mask-image: url('../../icons/#{$icon}.svg');
 		}
 	}
+	&.bulb {
+		mask-image: var(--bulb);
+	}
+	&.copy {
+		mask-image: var(--copy);
+}
 }
