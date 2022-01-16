@@ -1,4 +1,4 @@
-const features = [HighlightAnswer, JumpToTheAnswer, GetAnswerLink, HideNavBar, HideTooltipsBar];
+const features = [HighlightAnswer, JumpToTheAnswer, GetAnswerLink, CopyCode, HideNavBar, HideTooltipsBar];
 
 features.forEach(feature => {
 	chrome.storage.sync.get(feature.name, property => {

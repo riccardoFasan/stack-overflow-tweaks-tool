@@ -1,0 +1,9 @@
+@mixin injected-icon {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+@mixin transition {
+	transition: 0.3s ease-in-out;
+}

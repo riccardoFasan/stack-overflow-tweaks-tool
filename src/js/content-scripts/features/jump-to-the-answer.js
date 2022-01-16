@@ -10,7 +10,7 @@ function injectButton() {
 
 		const icon = document.createElement('div');
 		icon.setAttribute('class', 'icon');
-		icon.style.backgroundImage = `url(${getImageURL()})`;
+		icon.style.backgroundImage = `url(${getImageURL(bulbPath)})`;
 
 		questionHeader.appendChild(button);
 		button.appendChild(icon);
@@ -20,10 +20,6 @@ function injectButton() {
 			jumpToTheAnswer();
 		});
 	}
-}
-
-function getImageURL() {
-	return chrome.runtime.getURL(iconPath);
 }
 
 function jumpToTheAnswer() {

@@ -15,6 +15,11 @@ export const features = [
 		text: 'A # will appear next to each answer. By clicking it the link of that answer will be copied on your clickboard.',
 	},
 	{
+		name: 'copyCode',
+		title: 'Copy code',
+		text: 'A button will appear in the top-right corner of the code blocks. By clicking it the content of the block will be copied on your clipboard.',
+	},
+	{
 		name: 'hideNavBar',
 		title: 'Hide the navigation bar',
 		text: 'The left navigation will be hide in order to improve your focus.',

@@ -1,4 +1,6 @@
-const iconPath = 'icons/stackOverflowBulb.svg';
+const bulbPath = 'icons/stackOverflowBulb.svg';
+const copyPath = 'icons/copy.svg';
+
 const darkGreen = '#273C3B';
 const lightGreen = '#dffde8';
 
@@ -41,4 +43,8 @@ function copyToClipboard(text) {
 	setTimeout(() => {
 		clipboard.classList.remove('show');
 	}, 1000);
+}
+
+function getImageURL(path) {
+	return chrome.runtime.getURL(path);
 }

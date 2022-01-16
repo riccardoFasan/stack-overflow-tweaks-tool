@@ -1,4 +1,5 @@
 @use '../abstracts/colors' as colors;
+@use '../abstracts/mixins' as mixins;
 
 footer {
 	padding: 0 1.75rem 1.66rem 1.75rem;
@@ -26,13 +27,15 @@ footer {
 
 			.icon {
 				display: block;
-				transition: 0.3s;
+				@include mixins.transition;
+
 				height: 1.66rem;
 				width: 1.66rem;
 				background-color: colors.$dark-foreground;
-				transition: background-color 0.3s ease-in-out;
+				@include mixins.transition;
+
 				&:hover {
-					background-color: colors.$orange;
+					background-color: colors.$primary;
 				}
 			}
 		}

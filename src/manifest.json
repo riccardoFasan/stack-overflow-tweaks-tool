@@ -21,7 +21,8 @@
     "web_accessible_resources": [
         {
             "resources": [
-                "icons/stackOverflowBulb.svg"
+                "icons/stackOverflowBulb.svg",
+                "icons/copy.svg"
             ],
             "matches": [
                 "https://stackoverflow.com/*"
@@ -33,9 +34,10 @@
             "js": [
                 "js/content-scripts/common.js",
                 "js/content-scripts/features/feature.js",
-                "js/content-scripts/features/highlightAnswer.js",
-                "js/content-scripts/features/getAnswerLink.js",
-                "js/content-scripts/features/jumpToTheAnswer.js",
+                "js/content-scripts/features/highlight-answer.js",
+                "js/content-scripts/features/jump-to-the-answer.js",
+                "js/content-scripts/features/get-answer-link.js",
+                "js/content-scripts/features/copy-code.js",
                 "js/content-scripts/features/navs.js",
                 "js/content-scripts/init.js"
             ],

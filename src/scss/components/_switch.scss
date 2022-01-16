@@ -1,5 +1,6 @@
 @use '../abstracts/variables' as variables;
 @use '../abstracts/colors' as colors;
+@use '../abstracts/mixins' as mixins;
 
 label {
 	display: flex;
@@ -40,12 +41,12 @@ label {
 			right: 0;
 			bottom: 0;
 			background-color: colors.$dark-foreground;
-			transition: 0.4s;
+			@include mixins.transition;
 
 			&,
 			&:before {
 				border-radius: variables.$switch-heigth;
-				transition: 0.2s ease-in-out;
+				@include mixins.transition;
 			}
 
 			&:before {
@@ -63,7 +64,7 @@ label {
 			height: 0;
 
 			&:checked + .slider {
-				background-color: colors.$orange;
+				background-color: colors.$primary;
 
 				&:before {
 					transform: translateX(100%);

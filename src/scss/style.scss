@@ -1,39 +1,12 @@
 @use 'abstracts/colors' as colors;
+@use 'abstracts/mixins' as mixins;
 
 html {
 	scroll-behavior: smooth;
 
 	#question-header > h1 {
-		transition: 0.3s;
+		@include mixins.transition;
 		padding-right: 10px;
-	}
-
-	#answers .answer {
-		.votecell .js-voting-container .hashtag {
-			color: colors.$light-background;
-			font-size: 3rem;
-			font-weight: 500;
-			cursor: pointer;
-			text-align: center;
-			transition: 0.3s ease-in-out;
-			padding-bottom: 1.25rem;
-			line-height: 1;
-			&:hover {
-				color: colors.$orange;
-			}
-		}
-		&.accepted-answer {
-			transition: 0.3s;
-			padding: 30px 20px;
-			width: calc(100% + 20px);
-			margin: 100px -20px 100px 0;
-			border-radius: 10px;
-			border-bottom: unset;
-			border: 1px solid var(--black-100);
-			&.bg-green {
-				background-color: colors.$green;
-			}
-		}
 	}
 
 	#jumpToAnswerButton {
@@ -43,7 +16,7 @@ html {
 		justify-content: space-between;
 		margin-left: 15px;
 		max-height: 37.78px;
-		background-color: colors.$orange;
+		background-color: colors.$primary;
 
 		&:hover {
 			background-color: colors.$dark-orange;
@@ -53,9 +26,7 @@ html {
 			margin-right: 5px;
 			width: 15px;
 			height: 15px;
-			background-position: center;
-			background-repeat: no-repeat;
-			background-size: contain;
+			@include mixins.injected-icon;
 		}
 	}
 
@@ -72,7 +43,7 @@ html {
 		#left-sidebar,
 		#sidebar,
 		#mainbar {
-			transition: 0.3s ease-in-out;
+			@include mixins.transition;
 		}
 
 		#left-sidebar,
@@ -90,6 +61,51 @@ html {
 
 		#mainbar.w-100 {
 			width: 100%;
+
+			#answers .answer {
+				&.accepted-answer {
+					@include mixins.transition;
+					padding: 30px 20px;
+					width: calc(100% + 20px);
+					margin: 100px -20px 100px 0;
+					border-radius: 10px;
+					border-bottom: unset;
+					border: 1px solid var(--black-100);
+					&.bg-green {
+						background-color: colors.$green;
+					}
+				}
+
+				.votecell .js-voting-container .hashtag {
+					color: colors.$light-background;
+					font-size: 3rem;
+					font-weight: 500;
+					cursor: pointer;
+					text-align: center;
+					@include mixins.transition;
+					padding-bottom: 1.25rem;
+					line-height: 1;
+					&:hover {
+						color: colors.$primary;
+					}
+				}
+
+				.answercell .s-prose.js-post-body pre {
+					position: relative;
+					button.copy-button {
+						@include mixins.injected-icon;
+						@include mixins.transition;
+						position: absolute;
+						top: 12px;
+						right: 12px;
+						cursor: pointer;
+						height: 25px;
+						width: 25px;
+						background-color: transparent;
+						border: 0;
+					}
+				}
+			}
 		}
 	}
 
@@ -109,7 +125,7 @@ html {
 		transform: translateX(-50%);
 		z-index: 1000;
 		opacity: 0;
-		transition: 0.5s ease-in-out;
+		@include mixins.transition;
 		&.show {
 			opacity: 0.75;
 		}
