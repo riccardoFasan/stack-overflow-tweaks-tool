@@ -36,10 +36,10 @@ setGreen();
 
 injectableIcons.forEach(icon => {
 	setStyleVariable(icon.name, `url('${getImageURL(icon.path)}')`);
-})
+});
 
 function getImageURL(path) {
-	return chrome.runtime.getURL(path);
+	return browser.runtime.getURL(path);
 }
 
 function setStyleVariable(name, value) {
