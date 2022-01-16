@@ -11,10 +11,7 @@ html {
 	}
 
 	#jumpToAnswerButton {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: space-between;
+		@include mixins.flex-center;
 		margin-left: 15px;
 		max-height: 37.78px;
 		background-color: colors.$primary;

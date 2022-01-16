@@ -1,13 +1,16 @@
 @use '../abstracts/colors' as colors;
 @use '../abstracts/mixins' as mixins;
+@use '../abstracts/variables' as variables;
 
 footer {
-	padding: 0 1.75rem 1.66rem 1.75rem;
-	font-size: 0.85rem;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	color: colors.$dark-foreground;
+	padding: 0 variables.$popup-padding variables.$popup-padding variables.$popup-padding;
+	@include mixins.flex-center;
+
+	strong {
+		font-size: 1.1rem;
+		font-weight: 500;
+		color: colors.$foreground;
+	}
 
 	ul {
 		padding: 0;

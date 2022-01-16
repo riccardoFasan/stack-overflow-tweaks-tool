@@ -3,10 +3,8 @@
 @use '../abstracts/mixins' as mixins;
 
 label {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin: 1.5rem 0;
+	@include mixins.flex-center;
+	margin: 1.45rem 0;
 	user-select: none;
 
 	& > div {
