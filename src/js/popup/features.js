@@ -5,7 +5,7 @@ export const features = [
 		text: 'The correct answer, if any, will be highlighted with a green background.',
 	},
 	{
-		name: 'addButton',
+		name: 'jumpToTheAnswer',
 		title: 'Jump to the answer',
 		text: 'If ther\'s a correct answer, a button will be added in the question header, next to the "ask a question" button. When you click the new button, the page will scroll to the correct answer.',
 	},
