@@ -28,15 +28,13 @@ Now you can hide the navigation and tooltip bars, so that nothing can distract y
 
 ## Installation
 
-### Firefox
-
-StackOveflow Tweaks Tool is available on the Firefox add-ons [here](https://addons.mozilla.org/it/firefox/addon/stackoverflow-tweaks-tool/). 
+You can find the extension on the [Chrome Web Store]([StackOverflow Tweaks Tool - Chrome Web Store (google.com)](https://chrome.google.com/webstore/detail/stackoverflow-tweaks-tool/dfignoicphdepgloiodeaiokaepjbnan?hl=it&authuser=0)) and n the [Firefox add-ons](https://addons.mozilla.org/it/firefox/addon/stackoverflow-tweaks-tool/).
 
 ### Manual installation
 
 Download the repository. Go to your browser's extensions page, then turn on developer mode and load the src directory by clicking "load unpacked". Visit this [page](https://dev.to/ben/how-to-install-chrome-extensions-manually-from-github-1612) for more information on how to manually install an unpacked extension.
 
-StackOverflow Tweaks Tool will be available on the Chrome Web Store as soon as possible.
+
 
 > **⚠️** The main branch contains the chromium version of the extension. Switch to the "firefox-version" branch if you want to install it on Firefox.
 
