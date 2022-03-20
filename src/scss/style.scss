@@ -98,17 +98,30 @@ html {
 					box-sizing: content-box;
 
 					button.copy-button {
-						@include mixins.transition;
 						position: absolute;
 						top: 12px;
 						right: 12px;
-						height: 1.75rem;
-						width: 1.75rem;
+						height: 2.66rem;
+						width: 2.7rem;
 						cursor: pointer;
+						background-color: colors.$dark-primary;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						padding: 0;
 						border: 0;
-						background-color: colors.$light-background;
+						border-radius: 0.5rem;
+						&,
+						.icon {
+							@include mixins.transition;
+						}
 						&:hover {
 							background-color: colors.$primary;
+						}
+						.icon {
+							background-color: colors.$foreground;
+							width: 1.45rem;
+							height: 1.45rem;
 						}
 					}
 				}
