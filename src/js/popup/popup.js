@@ -20,14 +20,14 @@ function appendInput(feature) {
 
 function setStorageValue(propertyName, propertyValue) {
 	return new Promise(resolve => {
-		chrome.storage.sync.set({ [propertyName]: propertyValue });
+		browser.storage.sync.set({ [propertyName]: propertyValue });
 		resolve();
 	});
 }
 
 function getStorageValue(propertyName) {
 	return new Promise(resolve => {
-		chrome.storage.sync.get(propertyName, property => {
+		browser.storage.sync.get(propertyName, property => {
 			resolve(property[propertyName]);
 		});
 	});
