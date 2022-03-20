@@ -8,11 +8,14 @@ function addCopyButtons() {
 }
 
 function addCopyButton(block) {
-
 	const button = document.createElement('button');
-	button.setAttribute('class', 'copy-button icon copy');
+	button.setAttribute('class', 'copy-button');
 	button.setAttribute('title', 'Click to copy.');
 
+	const icon = document.createElement('div');
+	icon.setAttribute('class', 'icon copy');
+
+	button.appendChild(icon);
 	block.appendChild(button);
 
 	const code = block.querySelector('code');

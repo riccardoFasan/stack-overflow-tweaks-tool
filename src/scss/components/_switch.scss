@@ -15,6 +15,7 @@ label {
 			color: colors.$dark-foreground;
 		}
 		& > div {
+			cursor: pointer;
 			font-size: 0.9rem;
 			font-weight: 600;
 		}
