@@ -10,6 +10,7 @@
     "sass": "sass src/scss:src/css --style compressed --no-source-map",
     "sass-watch": "sass --watch src/scss:src/css --style compressed --no-source-map",
     "prefix": "postcss --replace src/css --use autoprefixer",
+    "style": "sass src/scss:src/css --style compressed --no-source-map && postcss --replace src/css --use autoprefixer",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
