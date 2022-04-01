@@ -28,8 +28,8 @@ function jumpToTheAnswer() {
 
 function getAnswerPosition() {
 	const answerTopPosition = correctAnswer.offsetTop;
-	const heanderHeight = header.clientHeight;
-	return answerTopPosition - heanderHeight;
+	const headerHeight = header.clientHeight;
+	return answerTopPosition - headerHeight;
 }
 
 function removeButton() {
