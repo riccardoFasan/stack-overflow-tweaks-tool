@@ -1,4 +1,4 @@
-chrome.runtime.onInstalled.addListener(() => {
+browser.runtime.onInstalled.addListener(() => {
 	browser.storage.sync.set({ jumpToTheAnswer: false });
 	browser.storage.sync.set({ highlightAnswer: false });
 	browser.storage.sync.set({ getAnswersLink: false });

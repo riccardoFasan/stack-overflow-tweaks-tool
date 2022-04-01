@@ -76,13 +76,16 @@ html {
 					height: 2.68rem;
 					width: 2.7rem;
 					cursor: pointer;
-					background-color: transparent;
 					display: flex;
 					justify-content: center;
 					align-items: center;
 					padding: 0;
+					background-color: var(--bc-medium);
 					border: 0.1rem var(--bc-medium) solid;
 					border-radius: 0.45rem;
+					&.dark {
+						background-color: transparent;
+					}
 					&,
 					.icon {
 						@include mixins.transition;
