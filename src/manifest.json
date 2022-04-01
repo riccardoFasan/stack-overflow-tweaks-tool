@@ -1,11 +1,5 @@
 {
-    "manifest_version": 2,
-    "browser_specific_settings": {
-        "gecko": {
-          "strict_min_version": "42.0",
-          "id" : "stackoverflowtweakstools@richard.com"
-        }
-      },
+    "manifest_version": 3,
     "name": "StackOverflow Tweaks Tool",
     "description": "A tool to tweak the StackOverflow UI and boost your productivity.",
     "version": "1.4.4",
@@ -18,15 +12,22 @@
         "storage"
     ],
     "background": {
-        "scripts": [ "js/background.js" ]
+        "service_worker": "js/background.js"
     },
-    "browser_action": {
+    "action": {
         "default_title": "StackOverflow Tweaks Tool",
         "default_popup": "popup.html"
     },
     "web_accessible_resources": [
-        "icons/stackOverflowBulb.svg",
-        "icons/copy.svg"
+        {
+            "resources": [
+                "icons/stackOverflowBulb.svg",
+                "icons/copy.svg"
+            ],
+            "matches": [
+                "https://stackoverflow.com/*"
+            ]
+        }
     ],
     "content_scripts": [
         {
@@ -44,7 +45,7 @@
                 "css/style.css"
             ],
             "matches": [
-                "*://stackoverflow.com/questions/*"
+                "*://stackoverflow.com/questions/*/*"
             ]
         }
     ]

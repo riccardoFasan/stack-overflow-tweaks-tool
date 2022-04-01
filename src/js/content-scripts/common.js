@@ -42,7 +42,7 @@ injectableIcons.forEach(icon => {
 });
 
 function getImageURL(path) {
-	return browser.runtime.getURL(path);
+	return chrome.runtime.getURL(path);
 }
 
 function setStyleVariable(name, value) {
