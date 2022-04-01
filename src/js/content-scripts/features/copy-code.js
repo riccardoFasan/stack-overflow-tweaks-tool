@@ -7,12 +7,15 @@ function addCopyButtons() {
 	});
 }
 
+const copyClasses = isDarkTheme ? 'copy-button dark' : 'copy-button';
+
 function addCopyButton(block) {
 	const button = document.createElement('button');
-	button.setAttribute('class', 'copy-button');
+	button.setAttribute('class', copyClasses);
 	button.setAttribute('title', 'Click to copy.');
 
 	const icon = document.createElement('div');
+
 	icon.setAttribute('class', 'icon copy');
 
 	button.appendChild(icon);

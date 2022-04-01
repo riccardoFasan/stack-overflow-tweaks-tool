@@ -28,8 +28,9 @@ const tooltipsBar = body.querySelector('#sidebar');
 const container = body.querySelector('#content');
 const content = container.querySelector('#mainbar');
 
+const isDarkTheme = body.classList.contains('theme-dark');
+
 function setGreen() {
-	const isDarkTheme = body.classList.contains('theme-dark');
 	const green = isDarkTheme ? darkGreen : lightGreen;
 	setStyleVariable('injected-green', green);
 }
