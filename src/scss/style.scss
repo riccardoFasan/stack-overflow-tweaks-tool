@@ -62,6 +62,42 @@ html {
 				width: 100%;
 			}
 
+			pre.s-code-block {
+				position: relative;
+				display: flex;
+				align-items: center;
+				min-height: 2.6rem;
+				box-sizing: content-box;
+
+				button.copy-button {
+					position: absolute;
+					top: 12px;
+					right: 12px;
+					height: 2.68rem;
+					width: 2.7rem;
+					cursor: pointer;
+					background-color: transparent;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					padding: 0;
+					border: 0.1rem var(--bc-medium) solid;
+					border-radius: 0.45rem;
+					&,
+					.icon {
+						@include mixins.transition;
+					}
+					&:hover {
+						background-color: colors.$primary;
+					}
+					.icon {
+						background-color: colors.$foreground;
+						width: 1.33rem;
+						height: 1.33rem;
+					}
+				}
+			}
+
 			#answers .answer {
 				&.accepted-answer {
 					@include mixins.transition;
@@ -87,42 +123,6 @@ html {
 					line-height: 1;
 					&:hover {
 						color: colors.$primary;
-					}
-				}
-
-				.answercell .s-prose.js-post-body pre {
-					position: relative;
-					display: flex;
-					align-items: center;
-					min-height: 1.75rem;
-					box-sizing: content-box;
-
-					button.copy-button {
-						position: absolute;
-						top: 12px;
-						right: 12px;
-						height: 2.66rem;
-						width: 2.7rem;
-						cursor: pointer;
-						background-color: colors.$dark-primary;
-						display: flex;
-						justify-content: center;
-						align-items: center;
-						padding: 0;
-						border: 0;
-						border-radius: 0.5rem;
-						&,
-						.icon {
-							@include mixins.transition;
-						}
-						&:hover {
-							background-color: colors.$primary;
-						}
-						.icon {
-							background-color: colors.$foreground;
-							width: 1.45rem;
-							height: 1.45rem;
-						}
 					}
 				}
 			}
