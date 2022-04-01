@@ -94,23 +94,23 @@ html {
 					position: relative;
 					display: flex;
 					align-items: center;
-					min-height: 1.75rem;
+					min-height: 2.6rem;
 					box-sizing: content-box;
 
 					button.copy-button {
 						position: absolute;
 						top: 12px;
 						right: 12px;
-						height: 2.66rem;
+						height: 2.68rem;
 						width: 2.7rem;
 						cursor: pointer;
-						background-color: colors.$dark-primary;
+						background-color: transparent;
 						display: flex;
 						justify-content: center;
 						align-items: center;
 						padding: 0;
-						border: 0;
-						border-radius: 0.5rem;
+						border: 0.33rem var(--bc-medium) solid;
+						border-radius: 0.45rem;
 						&,
 						.icon {
 							@include mixins.transition;
@@ -120,8 +120,8 @@ html {
 						}
 						.icon {
 							background-color: colors.$foreground;
-							width: 1.45rem;
-							height: 1.45rem;
+							width: 1.33rem;
+							height: 1.33rem;
 						}
 					}
 				}
