@@ -17,6 +17,8 @@ const body = document.querySelector('body');
 const header = body.querySelector('header');
 const questionHeader = body.querySelector('#question-header');
 
+const question = body.querySelector('.question');
+
 const answers = body.querySelectorAll('#answers div.answer');
 const correctAnswer = body.querySelector('.accepted-answer');
 

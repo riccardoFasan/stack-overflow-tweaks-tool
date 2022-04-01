@@ -1,6 +1,6 @@
 function addCopyButtons() {
-	answers.forEach(answer => {
-		const blocks = answer.querySelectorAll('.answercell .s-prose.js-post-body pre');
+	[...answers, question].forEach(answer => {
+		const blocks = answer.querySelectorAll('pre.s-code-block');
 		blocks.forEach(block => {
 			addCopyButton(block);
 		});
