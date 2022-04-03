@@ -32,11 +32,17 @@ Now you can hide the navigation and tooltip bars, so that nothing can distract y
 
 You can find the extension on the [Chrome Web Store](https://chrome.google.com/webstore/detail/stackoverflow-tweaks-tool/dfignoicphdepgloiodeaiokaepjbnan?hl=it&authuser=0) and n the [Firefox add-ons](https://addons.mozilla.org/it/firefox/addon/stackoverflow-tweaks-tool/).
 
-### Manual installation
+### Building & manual installation
 
-Download the repository. Go to your browser's extensions page, then turn on developer mode and load the src directory by clicking "load unpacked". Visit this [page](https://dev.to/ben/how-to-install-chrome-extensions-manually-from-github-1612) for more information on how to manually install an unpacked extension.
+Clone the repository, then run the following command to install dependencies and make a buid.
 
-> **⚠️** The main branch contains the chromium version of the extension. Switch to the "firefox-version" branch if you want to install it on Firefox.
+```shell
+ npm i && npm run build
+```
+
+> **⚠️** Run **npm run build firefox** if you want to build the Firefox version.
+
+Now, go to your browser's extensions page, then turn on developer mode and load the src directory by clicking "load unpacked". Visit this [page](https://dev.to/ben/how-to-install-chrome-extensions-manually-from-github-1612) for more information on how to manually install an unpacked extension.
 
 ## Acknowledgements
 

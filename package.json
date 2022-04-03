@@ -1,17 +1,14 @@
 {
   "name": "stack-overflow-tweaks-tool",
-  "version": "1.4.4",
+  "version": "1.4.5",
   "description": "A tool to tweak the StackOverflow UI and boost your productivity.",
   "main": "manifest.json",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "sass": "sass src/scss:src/css --style compressed --no-source-map",
-    "sass-watch": "sass --watch src/scss:src/css --style compressed --no-source-map",
-    "prefix": "postcss --replace src/css --use autoprefixer",
-    "style": "sass src/scss:src/css --style compressed --no-source-map && postcss --replace src/css --use autoprefixer",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "style": "sass src/scss:dist/css --style compressed --no-source-map && postcss --replace dist/css --use autoprefixer",
+    "build": "npm run style && node ./build.js"
   },
   "repository": {
     "type": "git",
@@ -27,5 +24,8 @@
     "autoprefixer": "^10.4.2",
     "postcss": "^8.4.5",
     "sass": "^1.48.0"
+  },
+  "dependencies": {
+    "fs-extra": "^10.0.1"
   }
 }
