@@ -30,7 +30,7 @@ Now you can hide the navigation and tooltip bars, so that nothing can distract y
 
 ## Installation
 
-You can find the extension on the [Chrome Web Store](https://chrome.google.com/webstore/detail/stackoverflow-tweaks-tool/dfignoicphdepgloiodeaiokaepjbnan?hl=it&authuser=0) and n the [Firefox add-ons](https://addons.mozilla.org/it/firefox/addon/stackoverflow-tweaks-tool/).
+You can find the extension on the [Chrome Web Store](https://chrome.google.com/webstore/detail/stackoverflow-tweaks-tool/dfignoicphdepgloiodeaiokaepjbnan?hl=it&authuser=0) and on the [Firefox add-ons](https://addons.mozilla.org/it/firefox/addon/stackoverflow-tweaks-tool/) page.
 
 ### Building & manual installation
 
