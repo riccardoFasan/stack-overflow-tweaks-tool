@@ -1,5 +1,7 @@
-<img src="./docs/images/logo.png" title="" alt="alt text" data-align="center">
-
+<div align="center" style="text-align: center;">
+    <img src="./docs/images/logo.png" title="" alt="alt text" data-align="center">
+</div>
+ 
 # StackOverflow Tweaks Tool
 
 StackOverflow Tweaks Tool is a **browser extension** made for developers. The extension provides a small control panel where you can customize the view of the StackOverflow question pages. It works on both Chromium and Firefox.
