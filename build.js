@@ -7,9 +7,7 @@ const SOURCE = './src';
 const DESTINATION = './dist';
 const TO_BE_EXCLUDED = ['scss', 'manifests'];
 
-let tragetBrowser = process.argv.slice(2)[0]; // chromium or firefox (chromiumn as default)
-if (typeof tragetBrowser !== 'string') tragetBrowser = 'chromium';
-if (tragetBrowser !== 'chromium' && tragetBrowser !== 'firefox') throw Error('The target browser must be "chromium" or "firefox"');
+const targetBrowser = process.argv.slice(2)[0] || 'chromium'; // "chromium" or "firefox" (chromium as default)
 
 const files = fs.readdirSync(SOURCE);
 files.forEach(file => {
@@ -18,23 +16,21 @@ files.forEach(file => {
 	}
 });
 
-let manifest = JSON.parse(fs.readFileSync(`${SOURCE}/manifests/${tragetBrowser}.manifest.json`));
-manifest = { ...manifest, version: VERSION };
+const manifest = { ...JSON.parse(fs.readFileSync(`${SOURCE}/manifests/${targetBrowser}.manifest.json`)), version: VERSION };
 fs.writeFileSync(`${DESTINATION}/manifest.json`, JSON.stringify(manifest, null, '\t'));
 
-if (tragetBrowser === 'firefox') {
-	replace();
-}
+if (targetBrowser === 'firefox') adaptForFirefox();
 
-function replace(folder = '') {
-	const files = fs.readdirSync(`${DESTINATION}/js/${folder}`);
+function adaptForFirefox(folder = '') {
+	const jsFolder = `${DESTINATION}/js/${folder}`;
+	const files = fs.readdirSync(jsFolder);
 	files.forEach(file => {
-		if (fs.lstatSync(`${DESTINATION}/js/${folder}${file}`).isDirectory()) {
-			replace(`${folder}${file}/`);
+		if (fs.lstatSync(`${jsFolder}${file}`).isDirectory()) {
+			adaptForFirefox(`${folder}${file}/`);
 		} else {
-			const content = fs.readFileSync(`${DESTINATION}/js/${folder}${file}`, 'utf8');
+			const content = fs.readFileSync(`${jsFolder}${file}`, 'utf8');
 			const newContent = content.replaceAll('chrome.', 'browser.');
-			fs.writeFileSync(`${DESTINATION}/js/${folder}${file}`, newContent, 'utf8');
+			fs.writeFileSync(`${jsFolder}${file}`, newContent, 'utf8');
 		}
 	});
 }
