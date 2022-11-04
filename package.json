@@ -1,31 +1,32 @@
 {
-  "name": "stack-overflow-tweaks-tool",
-  "version": "1.4.5",
-  "description": "A tool to tweak the StackOverflow UI and boost your productivity.",
-  "main": "manifest.json",
-  "directories": {
-    "doc": "docs"
-  },
-  "scripts": {
-    "style": "sass src/scss:dist/css --style compressed --no-source-map && postcss --replace dist/css --use autoprefixer",
-    "build": "npm run style && node ./build.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/riccardoFasan/stack-overflow-tweaks-tool.git"
-  },
-  "author": "Riccardo Fasan",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/riccardoFasan/stack-overflow-tweaks-tool/issues"
-  },
-  "homepage": "https://github.com/riccardoFasan/stack-overflow-tweaks-tool#readme",
-  "devDependencies": {
-    "autoprefixer": "^10.4.2",
-    "postcss": "^8.4.5",
-    "sass": "^1.48.0"
-  },
-  "dependencies": {
-    "fs-extra": "^10.0.1"
-  }
+	"name": "stack-overflow-tweaks-tool",
+	"version": "1.4.5",
+	"description": "A tool to tweak the StackOverflow UI and boost your productivity.",
+	"main": "manifest.json",
+	"directories": {
+		"doc": "docs"
+	},
+	"scripts": {
+		"style": "sass src/scss:dist/css --style compressed --no-source-map && postcss --replace dist/css --use autoprefixer",
+		"build": "npm run style && node ./build.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/riccardoFasan/stack-overflow-tweaks-tool.git"
+	},
+	"author": "Riccardo Fasan",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/riccardoFasan/stack-overflow-tweaks-tool/issues"
+	},
+	"homepage": "https://github.com/riccardoFasan/stack-overflow-tweaks-tool#readme",
+	"devDependencies": {
+		"autoprefixer": "^10.4.2",
+		"postcss": "^8.4.5",
+		"postcss-cli": "^10.0.0",
+		"sass": "^1.48.0"
+	},
+	"dependencies": {
+		"fs-extra": "^10.0.1"
+	}
 }
