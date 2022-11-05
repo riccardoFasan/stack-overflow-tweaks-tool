@@ -20,6 +20,7 @@ jobs:
                 && npm i chrome-webstore-upload-cli
                 && npm run build chromium
                 && zip -r chrome_dist.zip dist
+                && npx chrome-webstore-upload upload --source chrome_dist.zip --extension-id {{ secrets.CHROME_EXTENSION_ID }} --client-id {{ secrets.CHROME_CLIENT_ID }} --client-secret {{ secrets.CHROME_CLIENT_SECRET }} --refresh-token {{ secrets.CHROME_REFRESH_TOKEN }}
+                && rm -rf dist chrome_dist.zip
                 && npm run build firefox
-                && zip -r firefox_dist.zip dist
-                && chrome-webstore-upload upload --source chrome_dist.zip --extension-id {{ secrets.CHROME_EXTENSION_ID }} --client-id {{ secrets.CHROME_CLIENT_ID }} --client-secret {{ secrets.CHROME_CLIENT_SECRET }} --refresh-token {{ secrets.CHROME_REFRESH_TOKEN }}
+                && npx web-ext-submit --source-dir=./dist --api-key={{ secrets.FIREFOX_CLIENT_KEY }} --api-secret={{ secrets.FIREFOX_CLIENT_SECRET }}
