@@ -20,7 +20,10 @@ const questionHeader = body.querySelector('#question-header');
 const question = body.querySelector('.question');
 
 const answers = body.querySelectorAll('#answers div.answer');
+
 const correctAnswer = body.querySelector('.accepted-answer');
+
+const mostVoted = document.querySelector("[data-highest-scored='1']")
 
 const navigationBar = body.querySelector('#left-sidebar');
 const tooltipsBar = body.querySelector('#sidebar');

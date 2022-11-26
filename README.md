@@ -18,6 +18,10 @@ The correct answer, if any, will be highlighted with a green background.
 
 If the answer is correct, a button will be added in the question header, next to the "ask a question" button. When you click the new button, the page will scroll to the correct answer.
 
+### Jump to the most voted
+
+Add a button in the question header. When you click the new button, the page will scroll to the most voted answer.
+
 ### Copy answer link
 
 An "#" will appear next to each answer. By clicking it the link of that answer will be copied on your clipboard.
