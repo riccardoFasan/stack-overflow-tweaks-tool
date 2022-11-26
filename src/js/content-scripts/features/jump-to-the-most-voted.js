@@ -6,7 +6,7 @@ function injectButton() {
 
 		const text = document.createElement('div');
 		text.setAttribute('class', 'text');
-		text.innerText = 'Jump to most voted';
+		text.innerText = 'Jump to the most voted';
 
 		questionHeader.appendChild(button);
 		button.appendChild(text);
