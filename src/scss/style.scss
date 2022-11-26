@@ -28,6 +28,12 @@ html {
 		}
 	}
 
+	#jumpToTheMostVotedButton{
+		@include mixins.flex-center;
+		margin-left: 15px;
+		max-height: 37.78px;
+	}
+
 	.container {
 		#content {
 			max-width: unset;
