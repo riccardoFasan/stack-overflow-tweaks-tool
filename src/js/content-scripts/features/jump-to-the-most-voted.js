@@ -15,8 +15,6 @@ function injectButton() {
 			jumpToTheMostVoted();
 		});
 	}
-
-
 }
 
 function jumpToTheMostVoted() {

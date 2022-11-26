@@ -28,7 +28,7 @@
 				"js/content-scripts/features/feature.js",
 				"js/content-scripts/features/highlight-answer.js",
 				"js/content-scripts/features/jump-to-the-answer.js",
-				"js/content-scripts/features/jump-to-the-mosted-voted.js",
+				"js/content-scripts/features/jump-to-the-most-voted.js",
 				"js/content-scripts/features/get-answer-link.js",
 				"js/content-scripts/features/copy-code.js",
 				"js/content-scripts/features/toggle-navs.js",
