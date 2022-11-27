@@ -15,18 +15,18 @@ class Anchor {
 		this.insertMethod = insertMethod;
 	}
 
-	get answer() {
+	get __answer() {
 		return body.querySelector(this.selector);
 	}
 
 	get __answerPosition() {
-		const answerTopPosition = this.answer.offsetTop;
+		const answerTopPosition = this.__answer.offsetTop;
 		const headerHeight = header.clientHeight;
 		return answerTopPosition - headerHeight;
 	}
 
 	inject() {
-		if (this.answer) {
+		if (this.__answer) {
 			const button = document.createElement('button');
 			button.setAttribute('id', this.btnId);
 			button.setAttribute('class', `ws-nowrap s-btn ${this.btnStyle}`);
@@ -50,7 +50,7 @@ class Anchor {
 	}
 
 	remove() {
-		if (this.answer) {
+		if (this.__answer) {
 			const button = questionHeader.querySelector(`#${this.btnId}`);
 			button.remove();
 		}
