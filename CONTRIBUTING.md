@@ -15,6 +15,10 @@ Pull requests are the best way to propose changes to the codebase.
 3. Build and test the extension locally.
 4. Submit your Pull Request.
 
+### Use [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
+
+We use conventional commits to create an explicit commit history.
+
 ### Use a Consistent Coding Style
 
 We use use [Prettier](https://prettier.io/) to format our codebase.
