@@ -12,9 +12,9 @@ const AcceptedAnchor = new Anchor(
 const JumpToTheAnswer = new Feature(
 	'jumpToTheAnswer',
 	() => {
-		MostVotedAnchor.inject();
+		AcceptedAnchor.inject();
 	},
 	() => {
-		MostVotedAnchor.remove();
+		AcceptedAnchor.remove();
 	}
 );
