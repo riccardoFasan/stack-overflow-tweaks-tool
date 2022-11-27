@@ -1,63 +1,63 @@
 class Anchor {
-	constructor(
-		selector,
-		btnId,
-		btnText,
-		insertMethod,
-		btnStyle = '',
-		iconClass = ''
-	) {
-		this.selector = selector;
-		this.btnId = btnId;
-		this.btnText = btnText;
-		this.btnStyle = btnStyle;
-		this.iconClass = iconClass;
-		this.insertMethod = insertMethod;
-	}
+  constructor(
+    selector,
+    btnId,
+    btnText,
+    insertMethod,
+    btnStyle = '',
+    iconClass = ''
+  ) {
+    this.selector = selector;
+    this.btnId = btnId;
+    this.btnText = btnText;
+    this.btnStyle = btnStyle;
+    this.iconClass = iconClass;
+    this.insertMethod = insertMethod;
+  }
 
-	get __answer() {
-		return body.querySelector(this.selector);
-	}
+  get __answer() {
+    return body.querySelector(this.selector);
+  }
 
-	get __answerPosition() {
-		const answerTopPosition = this.__answer.offsetTop;
-		const headerHeight = header.clientHeight;
-		return answerTopPosition - headerHeight;
-	}
+  get __answerPosition() {
+    const answerTopPosition = this.__answer.offsetTop;
+    const headerHeight = header.clientHeight;
+    return answerTopPosition - headerHeight;
+  }
 
-	inject() {
-		if (this.__answer) {
-			const button = document.createElement('button');
-			button.setAttribute('id', this.btnId);
-			button.setAttribute('class', `ws-nowrap s-btn ${this.btnStyle}`);
+  inject() {
+    if (this.__answer) {
+      const button = document.createElement('button');
+      button.setAttribute('id', this.btnId);
+      button.setAttribute('class', `ws-nowrap s-btn ${this.btnStyle}`);
 
-			this.insertMethod(questionHeader, button);
+      this.insertMethod(questionHeader, button);
 
-			const text = document.createElement('div');
-			text.setAttribute('class', 'text');
-			text.innerText = this.btnText;
+      const text = document.createElement('div');
+      text.setAttribute('class', 'text');
+      text.innerText = this.btnText;
 
-			button.appendChild(text);
+      button.appendChild(text);
 
-			if (this.iconClass) {
-				const icon = document.createElement('div');
-				icon.setAttribute('class', 'icon bulb');
-				button.appendChild(icon);
-			}
+      if (this.iconClass) {
+        const icon = document.createElement('div');
+        icon.setAttribute('class', 'icon bulb');
+        button.appendChild(icon);
+      }
 
-			button.addEventListener('click', () => this.__jump());
-		}
-	}
+      button.addEventListener('click', () => this.__jump());
+    }
+  }
 
-	remove() {
-		if (this.__answer) {
-			const button = questionHeader.querySelector(`#${this.btnId}`);
-			button.remove();
-		}
-	}
+  remove() {
+    if (this.__answer) {
+      const button = questionHeader.querySelector(`#${this.btnId}`);
+      button.remove();
+    }
+  }
 
-	__jump() {
-		const position = this.__answerPosition;
-		window.scrollTo(0, position);
-	}
+  __jump() {
+    const position = this.__answerPosition;
+    window.scrollTo(0, position);
+  }
 }
