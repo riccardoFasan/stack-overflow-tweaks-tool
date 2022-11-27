@@ -6,9 +6,8 @@ function appendInput(feature) {
 	const label = document.createElement('label');
 	label.setAttribute('for', feature.name);
 	label.innerHTML = `
-		<div>
-			<div>${feature.title}</div>
-			<p>${feature.text}</p>
+		<div id="${feature.name}Title">
+			${feature.title}
 		</div>
 		<div class="switch">
 			<input id="${feature.name}" type="checkbox" />
@@ -16,6 +15,9 @@ function appendInput(feature) {
 		</div>
 	`;
 	form.appendChild(label);
+	tippy(`#${feature.name}Title`, {
+		content: feature.text,
+	});
 }
 
 function setStorageValue(propertyName, propertyValue) {

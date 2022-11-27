@@ -4,21 +4,14 @@
 
 label {
 	@include mixins.flex-center;
-	margin: 1.45rem 0;
+	margin: 1.66rem 0;
 	user-select: none;
 
 	& > div {
-		max-width: 85%;
-		p {
-			margin-top: 0.33rem;
-			font-size: 0.8rem;
-			color: colors.$dark-foreground;
-		}
-		& > div {
-			cursor: pointer;
-			font-size: 0.9rem;
-			font-weight: 600;
-		}
+		cursor: pointer;
+		width: 60%;
+		font-size: 1rem;
+		font-weight: 600;
 	}
 
 	.switch {
