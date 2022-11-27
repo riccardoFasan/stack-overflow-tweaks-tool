@@ -1,3 +1,5 @@
+const correctAnswer = body.querySelector('.accepted-answer');
+
 function updateCorrectAnswerStyle() {
 	if (correctAnswer) {
 		highlightAnswer();
