@@ -57,7 +57,7 @@ class Anchor {
 	}
 
 	__jump() {
-		const position = this.__getAnswerPosition();
+		const position = this.__answerPosition;
 		window.scrollTo(0, position);
 	}
 }
