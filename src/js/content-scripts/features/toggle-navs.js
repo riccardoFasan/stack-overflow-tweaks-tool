@@ -8,5 +8,13 @@ function toggleTooltipsBar() {
 	content.classList.toggle('w-100');
 }
 
-const HideNavBar = new Feature('hideNavBar', toggleNavigationBar, toggleNavigationBar);
-const HideTooltipsBar = new Feature('hideTooltipsBar', toggleTooltipsBar, toggleTooltipsBar);
+const HideNavBar = new Feature(
+	'hideNavBar',
+	toggleNavigationBar,
+	toggleNavigationBar
+);
+const HideTooltipsBar = new Feature(
+	'hideTooltipsBar',
+	toggleTooltipsBar,
+	toggleTooltipsBar
+);

@@ -10,7 +10,8 @@ function highlightAnswer() {
 }
 
 function removePreviousAnswerBorder() {
-	const previousAnswer = correctAnswer.previousElementSibling.previousElementSibling;
+	const previousAnswer =
+		correctAnswer.previousElementSibling.previousElementSibling;
 	if (previousAnswer) previousAnswer.style.borderBottom = 'unset';
 }
 
@@ -20,4 +21,8 @@ function removeAnswerHighlightment() {
 	}
 }
 
-const HighlightAnswer = new Feature('highlightAnswer', updateCorrectAnswerStyle, removeAnswerHighlightment);
+const HighlightAnswer = new Feature(
+	'highlightAnswer',
+	updateCorrectAnswerStyle,
+	removeAnswerHighlightment
+);
