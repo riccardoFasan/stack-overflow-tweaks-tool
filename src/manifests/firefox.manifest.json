@@ -31,7 +31,7 @@
 				"js/content-scripts/init.js"
 			],
 			"css": ["css/style.css"],
-			"matches": ["*://stackoverflow.com/questions/*"]
+			"matches": ["*stackoverflow.com/questions/*"]
 		}
 	],
 	"browser_specific_settings": {
