@@ -20,36 +20,19 @@ function appendInput(feature) {
   });
 }
 
-function setStorageValue(propertyName, propertyValue) {
-  return new Promise((resolve) => {
-    chrome.storage.sync.set({ [propertyName]: propertyValue });
-    resolve();
-  });
-}
-
-function getStorageValue(propertyName) {
-  return new Promise((resolve) => {
-    chrome.storage.sync.get(propertyName, (property) => {
-      resolve(property[propertyName]);
-    });
-  });
-}
-
-features.forEach((feature) => {
+features.forEach(async (feature) => {
   appendInput(feature);
-  getStorageValue(feature.name).then((defaultValue) => {
-    if (defaultValue === undefined) {
-      defaultValue = false;
-      setStorageValue(feature.name, defaultValue);
-    }
+  let defaultValue = await chrome.storage.sync.get(feature.name);
+  if (defaultValue === undefined) {
+    defaultValue = false;
+    await chrome.storage.sync.set(feature.name, defaultValue);
+  }
 
-    const input = document.querySelector(`#${feature.name}`);
-    input.checked = defaultValue;
+  const input = document.querySelector(`#${feature.name}`);
+  input.checked = defaultValue;
 
-    input.addEventListener('click', () => {
-      getStorageValue(feature.name).then((currentValue) => {
-        setStorageValue(feature.name, !currentValue);
-      });
-    });
+  input.addEventListener('click', async () => {
+    const currentValue = await chrome.storage.sync.get(feature.name);
+    await chrome.storage.sync.set(feature.name, !currentValue);
   });
 });

@@ -18,13 +18,13 @@
   "web_accessible_resources": [
     {
       "resources": ["icons/stackOverflowBulb.svg", "icons/copy.svg"],
-			"matches": ["*stackoverflow.com/*"]
+      "matches": ["*://stackoverflow.com/*"]
     }
   ],
   "content_scripts": [
     {
       "js": [
-        "js/content-scripts/common.js",
+        "js/content-scripts/dom.js",
         "js/content-scripts/features/feature.js",
         "js/content-scripts/features/anchor.js",
         "js/content-scripts/features/highlight-answer.js",
@@ -36,7 +36,10 @@
         "js/content-scripts/init.js"
       ],
       "css": ["css/style.css"],
-			"matches": ["*stackoverflow.com/questions/*/*"]
+      "matches": [
+        "*://stackoverflow.com/questions/*/*",
+        "*://*.stackoverflow.com/questions/*/*"
+      ]
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "name": "stack-overflow-tweaks-tool",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "description": "A tool to tweak the StackOverflow UI and boost your productivity.",
   "main": "manifest.json",
   "directories": {

@@ -8,11 +8,10 @@ const features = [
   HideTooltipsBar,
 ];
 
-features.forEach((feature) => {
-  chrome.storage.sync.get(feature.name, (property) => {
-    const value = property[feature.name];
-    if (value) feature.enable();
-  });
+features.forEach(async (feature) => {
+  const property = await chrome.storage.sync.get(feature.name);
+  const value = property[feature.name];
+  if (value) feature.enable();
 });
 
 chrome.storage.onChanged.addListener((changes) => {
