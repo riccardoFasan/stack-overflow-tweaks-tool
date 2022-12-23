@@ -10,27 +10,27 @@ StackOverflow Tweaks Tool is a **browser extension** made for developers. The ex
 
 ## Features
 
-### Highlight the correct answer
+### Highlight the Correct Answer
 
 The correct answer, if any, will be highlighted with a green background.
 
-### Jump to the answer
+### Jump to the Answer
 
 If the answer is correct, a button will be added in the question header, next to the "ask a question" button. When you click the new button, the page will scroll to the correct answer.
 
-### Jump to the most voted
+### Jump to the Most Voted
 
 Add a button in the question header. When you click the new button, the page will scroll to the most voted answer.
 
-### Copy answer link
+### Copy Answer Link
 
 An "#" will appear next to each answer. By clicking it the link of that answer will be copied on your clipboard.
 
-### Copy code blocks
+### Copy Code Blocks
 
 A button will appear in the top-right corner of any code block. By clicking it the content of the block will be copied on your clipboard.
 
-### Improve your focus
+### Improve your Focus
 
 Now you can hide the navigation and tooltip bars, so that nothing can distract you.
 
@@ -38,7 +38,7 @@ Now you can hide the navigation and tooltip bars, so that nothing can distract y
 
 You can find the extension on the [Chrome Web Store](https://chrome.google.com/webstore/detail/stackoverflow-tweaks-tool/dfignoicphdepgloiodeaiokaepjbnan) and on the [Firefox add-ons](https://addons.mozilla.org/firefox/addon/stackoverflow-tweaks-tool/) page.
 
-### Building & manual installation
+### Building & Manual Installation
 
 Clone the repository, then run the following command to install dependencies and make a buid.
 
@@ -49,6 +49,10 @@ Clone the repository, then run the following command to install dependencies and
 > **⚠️** Run **npm run build firefox** if you want to build the Firefox version.
 
 Now, go to your browser's extensions page, then turn on developer mode and load the src directory by clicking "load unpacked". Visit this [page](https://dev.to/ben/how-to-install-chrome-extensions-manually-from-github-1612) for more information on how to manually install an unpacked extension.
+
+## Contributing & Bug Reporting
+
+All help is welcome! Read the contribution guidelines for more info on submitting a PR or opening an issue.
 
 ## Acknowledgements
 

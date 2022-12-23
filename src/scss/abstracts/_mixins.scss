@@ -1,10 +1,10 @@
 @mixin transition {
-	transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
 }
 
 @mixin flex-center {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }

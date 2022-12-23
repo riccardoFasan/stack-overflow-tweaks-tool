@@ -1,12 +1,12 @@
 const injectableIcons = [
-	{
-		name: 'bulb',
-		path: 'icons/stackOverflowBulb.svg',
-	},
-	{
-		name: 'copy',
-		path: 'icons/copy.svg',
-	},
+  {
+    name: 'bulb',
+    path: 'icons/stackOverflowBulb.svg',
+  },
+  {
+    name: 'copy',
+    path: 'icons/copy.svg',
+  },
 ];
 
 const darkGreen = '#273C3B';
@@ -29,38 +29,38 @@ const content = container.querySelector('#mainbar');
 const isDarkTheme = body.classList.contains('theme-dark');
 
 function setGreen() {
-	const green = isDarkTheme ? darkGreen : lightGreen;
-	setStyleVariable('injected-green', green);
+  const green = isDarkTheme ? darkGreen : lightGreen;
+  setStyleVariable('injected-green', green);
 }
 
 setGreen();
 
-injectableIcons.forEach(icon => {
-	setStyleVariable(icon.name, `url('${getImageURL(icon.path)}')`);
+injectableIcons.forEach((icon) => {
+  setStyleVariable(icon.name, `url('${getImageURL(icon.path)}')`);
 });
 
 function getImageURL(path) {
-	return chrome.runtime.getURL(path);
+  return chrome.runtime.getURL(path);
 }
 
 function setStyleVariable(name, value) {
-	document.documentElement.style.setProperty(`--${name}`, value);
+  document.documentElement.style.setProperty(`--${name}`, value);
 }
 
 function appendClipboardAlert() {
-	const clipboard = document.createElement('div');
-	clipboard.setAttribute('id', 'clipboard-alert');
-	clipboard.innerText = 'Copied to clipboard!';
-	body.appendChild(clipboard);
+  const clipboard = document.createElement('div');
+  clipboard.setAttribute('id', 'clipboard-alert');
+  clipboard.innerText = 'Copied to clipboard!';
+  body.appendChild(clipboard);
 }
 
 appendClipboardAlert();
 const clipboard = document.getElementById('clipboard-alert');
 
 function copyToClipboard(text) {
-	navigator.clipboard.writeText(text);
-	clipboard.classList.add('show');
-	setTimeout(() => {
-		clipboard.classList.remove('show');
-	}, 1000);
+  navigator.clipboard.writeText(text);
+  clipboard.classList.add('show');
+  setTimeout(() => {
+    clipboard.classList.remove('show');
+  }, 1000);
 }

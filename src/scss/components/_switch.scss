@@ -1,67 +1,67 @@
-@use '../abstracts/variables' as variables;
-@use '../abstracts/colors' as colors;
-@use '../abstracts/mixins' as mixins;
+@use "../abstracts/variables" as variables;
+@use "../abstracts/colors" as colors;
+@use "../abstracts/mixins" as mixins;
 
 label {
-	@include mixins.flex-center;
-	margin: 1.66rem 0;
-	user-select: none;
+  @include mixins.flex-center;
+  margin: 1.66rem 0;
+  user-select: none;
 
-	& > div {
-		cursor: pointer;
-		width: 60%;
-		font-size: 1rem;
-		font-weight: 600;
-	}
+  & > div {
+    cursor: pointer;
+    width: 60%;
+    font-size: 1rem;
+    font-weight: 600;
+  }
 
-	.switch {
-		display: block;
-		position: relative;
+  .switch {
+    display: block;
+    position: relative;
 
-		&,
-		.slider {
-			height: variables.$switch-heigth;
-			width: variables.$switch-width;
-		}
+    &,
+    .slider {
+      height: variables.$switch-heigth;
+      width: variables.$switch-width;
+    }
 
-		.slider {
-			cursor: pointer;
-			position: absolute;
-			padding: 4px;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			background-color: colors.$dark-foreground;
-			@include mixins.transition;
+    .slider {
+      cursor: pointer;
+      position: absolute;
+      padding: 4px;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: colors.$dark-foreground;
+      @include mixins.transition;
 
-			&,
-			&:before {
-				border-radius: variables.$switch-heigth;
-				@include mixins.transition;
-			}
+      &,
+      &:before {
+        border-radius: variables.$switch-heigth;
+        @include mixins.transition;
+      }
 
-			&:before {
-				position: absolute;
-				content: '';
-				height: variables.$switch-heigth;
-				width: variables.$switch-heigth;
-				background-color: colors.$foreground;
-			}
-		}
+      &:before {
+        position: absolute;
+        content: "";
+        height: variables.$switch-heigth;
+        width: variables.$switch-heigth;
+        background-color: colors.$foreground;
+      }
+    }
 
-		input {
-			opacity: 0;
-			width: 0;
-			height: 0;
+    input {
+      opacity: 0;
+      width: 0;
+      height: 0;
 
-			&:checked + .slider {
-				background-color: colors.$primary;
+      &:checked + .slider {
+        background-color: colors.$primary;
 
-				&:before {
-					transform: translateX(100%);
-				}
-			}
-		}
-	}
+        &:before {
+          transform: translateX(100%);
+        }
+      }
+    }
+  }
 }

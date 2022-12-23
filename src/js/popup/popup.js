@@ -3,9 +3,9 @@ import { features } from './features.js';
 const form = document.querySelector('form');
 
 function appendInput(feature) {
-	const label = document.createElement('label');
-	label.setAttribute('for', feature.name);
-	label.innerHTML = `
+  const label = document.createElement('label');
+  label.setAttribute('for', feature.name);
+  label.innerHTML = `
 		<div id="${feature.name}Title">
 			${feature.title}
 		</div>
@@ -14,42 +14,25 @@ function appendInput(feature) {
 			<span class="slider"></span>
 		</div>
 	`;
-	form.appendChild(label);
-	tippy(`#${feature.name}Title`, {
-		content: feature.text,
-	});
+  form.appendChild(label);
+  tippy(`#${feature.name}Title`, {
+    content: feature.text,
+  });
 }
 
-function setStorageValue(propertyName, propertyValue) {
-	return new Promise(resolve => {
-		chrome.storage.sync.set({ [propertyName]: propertyValue });
-		resolve();
-	});
-}
+features.forEach(async (feature) => {
+  appendInput(feature);
+  let defaultValue = await chrome.storage.sync.get(feature.name);
+  if (defaultValue === undefined) {
+    defaultValue = false;
+    await chrome.storage.sync.set(feature.name, defaultValue);
+  }
 
-function getStorageValue(propertyName) {
-	return new Promise(resolve => {
-		chrome.storage.sync.get(propertyName, property => {
-			resolve(property[propertyName]);
-		});
-	});
-}
+  const input = document.querySelector(`#${feature.name}`);
+  input.checked = defaultValue;
 
-features.forEach(feature => {
-	appendInput(feature);
-	getStorageValue(feature.name).then(defaultValue => {
-		if (defaultValue === undefined) {
-			defaultValue = false;
-			setStorageValue(feature.name, defaultValue);
-		}
-
-		const input = document.querySelector(`#${feature.name}`);
-		input.checked = defaultValue;
-
-		input.addEventListener('click', () => {
-			getStorageValue(feature.name).then(currentValue => {
-				setStorageValue(feature.name, !currentValue);
-			});
-		});
-	});
+  input.addEventListener('click', async () => {
+    const currentValue = await chrome.storage.sync.get(feature.name);
+    await chrome.storage.sync.set(feature.name, !currentValue);
+  });
 });

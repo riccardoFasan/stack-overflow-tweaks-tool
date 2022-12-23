@@ -1,20 +1,20 @@
-$icons: ('github', 'paypal');
+$icons: ("github", "paypal");
 
 .icon {
-	mask-size: contain;
-	mask-repeat: no-repeat;
-	mask-position: center;
-	height: 1.5rem;
-	width: 1.5rem;
-	@each $icon in $icons {
-		&.#{$icon} {
-			mask-image: url('../../icons/#{$icon}.svg');
-		}
-	}
-	&.bulb {
-		mask-image: var(--bulb);
-	}
-	&.copy {
-		mask-image: var(--copy);
-}
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  height: 1.5rem;
+  width: 1.5rem;
+  @each $icon in $icons {
+    &.#{$icon} {
+      mask-image: url("../../icons/#{$icon}.svg");
+    }
+  }
+  &.bulb {
+    mask-image: var(--bulb);
+  }
+  &.copy {
+    mask-image: var(--copy);
+  }
 }

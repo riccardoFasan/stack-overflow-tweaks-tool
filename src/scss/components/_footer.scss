@@ -1,46 +1,47 @@
-@use '../abstracts/colors' as colors;
-@use '../abstracts/mixins' as mixins;
-@use '../abstracts/variables' as variables;
+@use "../abstracts/colors" as colors;
+@use "../abstracts/mixins" as mixins;
+@use "../abstracts/variables" as variables;
 
 footer {
-	padding: 0 variables.$popup-padding variables.$popup-padding variables.$popup-padding;
-	@include mixins.flex-center;
+  padding: 0 variables.$popup-padding variables.$popup-padding
+    variables.$popup-padding;
+  @include mixins.flex-center;
 
-	strong {
-		font-size: 1.1rem;
-		font-weight: 500;
-		color: colors.$foreground;
-	}
+  strong {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: colors.$foreground;
+  }
 
-	ul {
-		padding: 0;
-		margin: 0;
-		list-style-type: none;
-		display: flex;
-		flex-direction: row;
-		justify-content: flex-end;
-		align-items: center;
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
 
-		li {
-			display: block;
+    li {
+      display: block;
 
-			&:first-child {
-				margin-right: 1rem;
-			}
+      &:first-child {
+        margin-right: 1rem;
+      }
 
-			.icon {
-				display: block;
-				@include mixins.transition;
+      .icon {
+        display: block;
+        @include mixins.transition;
 
-				height: 1.66rem;
-				width: 1.66rem;
-				background-color: colors.$dark-foreground;
-				@include mixins.transition;
+        height: 1.66rem;
+        width: 1.66rem;
+        background-color: colors.$dark-foreground;
+        @include mixins.transition;
 
-				&:hover {
-					background-color: colors.$primary;
-				}
-			}
-		}
-	}
+        &:hover {
+          background-color: colors.$primary;
+        }
+      }
+    }
+  }
 }

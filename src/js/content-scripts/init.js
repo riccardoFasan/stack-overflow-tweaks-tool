@@ -1,17 +1,24 @@
-const features = [HighlightAnswer, JumpToTheMostVoted, JumpToTheAnswer, GetAnswerLink, CopyCode, HideNavBar, HideTooltipsBar];
+const features = [
+  HighlightAnswer,
+  JumpToTheMostVoted,
+  JumpToTheAnswer,
+  GetAnswerLink,
+  CopyCode,
+  HideNavBar,
+  HideTooltipsBar,
+];
 
-features.forEach(feature => {
-	chrome.storage.sync.get(feature.name, property => {
-		const value = property[feature.name];
-		if (value) feature.enable();
-	});
+features.forEach(async (feature) => {
+  const property = await chrome.storage.sync.get(feature.name);
+  const value = property[feature.name];
+  if (value) feature.enable();
 });
 
-chrome.storage.onChanged.addListener(changes => {
-	const property = Object.keys(changes)[0];
-	const feature = features.find(feature => feature.name === property);
-	if (feature) {
-		const enable = changes[property].newValue;
-		feature[enable ? 'enable' : 'disable']();
-	}
+chrome.storage.onChanged.addListener((changes) => {
+  const property = Object.keys(changes)[0];
+  const feature = features.find((feature) => feature.name === property);
+  if (feature) {
+    const enable = changes[property].newValue;
+    feature[enable ? 'enable' : 'disable']();
+  }
 });
