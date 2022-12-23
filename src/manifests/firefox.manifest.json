@@ -19,7 +19,7 @@
   "content_scripts": [
     {
       "js": [
-        "js/content-scripts/common.js",
+        "js/content-scripts/dom.js",
         "js/content-scripts/features/feature.js",
         "js/content-scripts/features/anchor.js",
         "js/content-scripts/features/highlight-answer.js",
