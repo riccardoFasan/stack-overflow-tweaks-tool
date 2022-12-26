@@ -9,8 +9,8 @@ const features = [
 ];
 
 features.forEach(async (feature) => {
-  const property = await chrome.storage.sync.get(feature.name);
-  const value = property[feature.name];
+  const initialValueObject = await chrome.storage.sync.get(feature.name);
+  const value = initialValueObject[feature.name];
   if (value) feature.enable();
 });
 

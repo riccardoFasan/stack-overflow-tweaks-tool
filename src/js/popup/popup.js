@@ -22,17 +22,19 @@ function appendInput(feature) {
 
 features.forEach(async (feature) => {
   appendInput(feature);
-  let defaultValue = await chrome.storage.sync.get(feature.name);
-  if (defaultValue === undefined) {
-    defaultValue = false;
-    await chrome.storage.sync.set(feature.name, defaultValue);
+  const initialValueObject = await chrome.storage.sync.get(feature.name);
+  const initialValue = initialValueObject[feature.name];
+  if (initialValue === undefined) {
+    initialValue = false;
+    await chrome.storage.sync.set({ [feature.name]: initialValue });
   }
 
   const input = document.querySelector(`#${feature.name}`);
-  input.checked = defaultValue;
+  input.checked = initialValue;
 
   input.addEventListener('click', async () => {
-    const currentValue = await chrome.storage.sync.get(feature.name);
-    await chrome.storage.sync.set(feature.name, !currentValue);
+    const currentValueObject = await chrome.storage.sync.get(feature.name);
+    const currentValue = currentValueObject[feature.name];
+    await chrome.storage.sync.set({ [feature.name]: !currentValue });
   });
 });
