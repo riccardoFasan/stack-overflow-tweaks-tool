@@ -27,14 +27,18 @@ const container = body.querySelector('#content');
 const content = container.querySelector('#mainbar');
 
 function isDarkTheme() {
-  return body.classList.contains('theme-dark') || body.classList.contains('theme-system') && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  return (
+    body.classList.contains('theme-dark') ||
+    (body.classList.contains('theme-system') &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches)
+  );
 }
 
-window.matchMedia('(prefers-color-scheme: dark)')
+window
+  .matchMedia('(prefers-color-scheme: dark)')
   .addEventListener('change', () => {
     setGreen();
-  })
-
+  });
 
 function setGreen() {
   const green = isDarkTheme() ? darkGreen : lightGreen;
