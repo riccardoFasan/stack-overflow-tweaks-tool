@@ -26,10 +26,18 @@ const tooltipsBar = body.querySelector('#sidebar');
 const container = body.querySelector('#content');
 const content = container.querySelector('#mainbar');
 
-const isDarkTheme = body.classList.contains('theme-dark');
+function isDarkTheme() {
+  return body.classList.contains('theme-dark') || body.classList.contains('theme-system') && window.matchMedia("(prefers-color-scheme: dark)").matches;
+}
+
+window.matchMedia('(prefers-color-scheme: dark)')
+  .addEventListener('change', () => {
+    setGreen();
+  })
+
 
 function setGreen() {
-  const green = isDarkTheme ? darkGreen : lightGreen;
+  const green = isDarkTheme() ? darkGreen : lightGreen;
   setStyleVariable('injected-green', green);
 }
 
