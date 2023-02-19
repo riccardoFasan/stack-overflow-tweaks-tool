@@ -69,16 +69,17 @@ html {
       }
 
       pre.s-code-block {
+        $padding: var(--su16);
         position: relative;
-        display: flex;
-        align-items: center;
+        display: block;
         min-height: 2.6rem;
         box-sizing: content-box;
+        padding: var(--su16);
 
         button.copy-button {
           position: absolute;
-          top: 12px;
-          right: 12px;
+          top: $padding;
+          right: $padding;
           height: 2.68rem;
           width: 2.7rem;
           cursor: pointer;
