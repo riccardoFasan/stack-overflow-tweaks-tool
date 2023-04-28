@@ -32,6 +32,6 @@ export const features = [
   {
     name: 'hideTooltipsBar',
     title: 'Hide the Tooltips Bar',
-    text: 'The tooltips and \'Hot Network Questions\' on the right will be hidden to improve focus.',
+    text: "The tooltips and 'Hot Network Questions' on the right will be hidden to improve focus.",
   },
 ];
