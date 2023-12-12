@@ -5,7 +5,7 @@ class Anchor {
     btnText,
     insertMethod,
     btnStyle = '',
-    iconClass = ''
+    iconClass = '',
   ) {
     this.selector = selector;
     this.btnId = btnId;
@@ -33,17 +33,17 @@ class Anchor {
 
       this.insertMethod(questionHeader, button);
 
-      const text = document.createElement('div');
-      text.setAttribute('class', 'text');
-      text.innerText = this.btnText;
-
-      button.appendChild(text);
-
       if (this.iconClass) {
         const icon = document.createElement('div');
         icon.setAttribute('class', 'icon bulb');
         button.appendChild(icon);
       }
+
+      const text = document.createElement('div');
+      text.setAttribute('class', 'text');
+      text.innerText = this.btnText;
+
+      button.appendChild(text);
 
       button.addEventListener('click', () => this.__jump());
     }
