@@ -26,5 +26,5 @@ function removeAnswerHighlightment() {
 const HighlightAnswer = new Feature(
   'highlightAnswer',
   updateCorrectAnswerStyle,
-  removeAnswerHighlightment
+  removeAnswerHighlightment,
 );
