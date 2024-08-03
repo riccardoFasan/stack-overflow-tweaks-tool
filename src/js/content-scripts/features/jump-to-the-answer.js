@@ -6,7 +6,7 @@ const AcceptedAnchor = new Anchor(
     questionHeader.appendChild(button);
   },
   's-btn__primary',
-  'bulb'
+  'bulb',
 );
 
 const JumpToTheAnswer = new Feature(
@@ -16,5 +16,5 @@ const JumpToTheAnswer = new Feature(
   },
   () => {
     AcceptedAnchor.remove();
-  }
+  },
 );
