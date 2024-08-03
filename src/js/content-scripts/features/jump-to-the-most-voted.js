@@ -9,7 +9,7 @@ const MostVotedAnchor = new Anchor(
     }
     questionHeader.appendChild(button);
   },
-  's-btn__filled s-btn__sm'
+  's-btn__filled s-btn__sm',
 );
 
 const JumpToTheMostVoted = new Feature(
@@ -19,5 +19,5 @@ const JumpToTheMostVoted = new Feature(
   },
   () => {
     MostVotedAnchor.remove();
-  }
+  },
 );

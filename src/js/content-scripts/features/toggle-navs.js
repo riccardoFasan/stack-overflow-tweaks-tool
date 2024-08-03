@@ -11,10 +11,10 @@ function toggleTooltipsBar() {
 const HideNavBar = new Feature(
   'hideNavBar',
   toggleNavigationBar,
-  toggleNavigationBar
+  toggleNavigationBar,
 );
 const HideTooltipsBar = new Feature(
   'hideTooltipsBar',
   toggleTooltipsBar,
-  toggleTooltipsBar
+  toggleTooltipsBar,
 );
