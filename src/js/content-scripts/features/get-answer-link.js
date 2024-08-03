@@ -37,5 +37,5 @@ function removeHashtags() {
 const GetAnswerLink = new Feature(
   'getAnswersLink',
   addHashtags,
-  removeHashtags
+  removeHashtags,
 );
